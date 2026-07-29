@@ -53,9 +53,14 @@ npm run build        # build de frontend y backend
 
 Husky ejecuta Prettier sobre los archivos en staging (`pre-commit`) y valida los mensajes de commit con Conventional Commits (`commit-msg`).
 
+## Despliegue
+
+El frontend se despliega en Vercel con **Root Directory = `frontend`** (es un monorepo: en la raíz no hay aplicación Next.js y el despliegue devolvería 404). Detalle completo en [docs/deployment.md](docs/deployment.md).
+
 ## Documentación
 
 - [docs/architecture.md](docs/architecture.md)
+- [docs/deployment.md](docs/deployment.md)
 - [docs/design-system.md](docs/design-system.md)
 - [docs/admin-panel.md](docs/admin-panel.md)
 - [docs/conventions.md](docs/conventions.md)

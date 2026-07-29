@@ -16,7 +16,7 @@
     "typecheck": "npm run typecheck --workspace frontend && npm run typecheck --workspace backend",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "prepare": "husky"
+    "prepare": "husky || true"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",

@@ -55,6 +55,7 @@
 - El repositorio estaba vacío: se creó el commit inicial en `main` con el README y todo el Sprint llega por Pull Request.
 - Tailwind v4 genera utilidades a partir de los tokens de color, y llamar `base` al color de fondo colisionaba con la utilidad de tamaño de texto `text-base`; se renombró a `night`/`carbon`.
 - Los contenedores instalan dependencias con `npm install` dentro de su propia etapa (no `npm ci`), porque el lockfile vive en la raíz del monorepo y cada Dockerfile solo recibe el contexto de su paquete.
+- El primer despliegue en Vercel devolvía `404 NOT_FOUND`: al ser un monorepo, el proyecto de Vercel debe apuntar a `frontend` como Root Directory. Se añadió `frontend/vercel.json` y [docs/deployment.md](docs/deployment.md) con la configuración exacta; el código no era la causa.
 - `npm audit` reporta vulnerabilidades en dependencias transitivas del scaffold de Next.js y NestJS; no se forzaron actualizaciones para no alterar las versiones del stack sin autorización.
 
 ## Sugerencias para el siguiente Sprint
@@ -74,4 +75,5 @@ Listado completo en [docs/suggestions.md](docs/suggestions.md). Las más relevan
 - Botón "Comenzar" y tarjetas de "¿Quién eres?": visuales, sin destino definido.
 - Imágenes reales (disciplinas, artículos, videos) y su optimización con `next/image`.
 - Tests de frontend y tests e2e más allá del `health` del backend.
-- Dominio definitivo en `NEXT_PUBLIC_SITE_URL` para metadata, sitemap y robots.
+- Dominio definitivo en `NEXT_PUBLIC_SITE_URL` para metadata, sitemap y robots (también como variable de entorno en Vercel).
+- Plataforma de despliegue del backend y de PostgreSQL.
