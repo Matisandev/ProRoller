@@ -1,3 +1,81 @@
+# Sprint 2 — Contenido inicial de ProRoller (MVP)
+
+## Qué se implementó
+
+### Rutas nuevas
+
+| Ruta                  | Qué contiene                                                                                            |
+| --------------------- | ------------------------------------------------------------------------------------------------------- |
+| `/disciplinas[/slug]` | Las 8 disciplinas con descripción, historia, objetivos, nivel, equipo, técnicas, videos y artículos     |
+| `/marcas[/slug]`      | FR Skates, Powerslide, Seba, Flying Eagle y Micro con historia, modelos conocidos y disciplinas         |
+| `/modelos[/slug]`     | 9 fichas con especificaciones generales, disciplina recomendada, compatibilidades e información técnica |
+| `/tutoriales[/slug]`  | 9 tutoriales con explicación, nivel, puntos clave y videos relacionados                                 |
+| `/articulos[/slug]`   | 7 artículos completos escritos para ProRoller                                                           |
+| `/noticias`           | 5 noticias reales resumidas, con enlace a la fuente oficial                                             |
+| `/distribuidores`     | Alacalufe y Decathlon con sello "Distribuidor recomendado por ProRoller"                                |
+
+Cada ruta de detalle usa `generateStaticParams()`, `generateMetadata()` y `notFound()` para slugs inexistentes. El build genera 52 páginas estáticas.
+
+### Contenido
+
+- Redactado íntegramente para ProRoller a partir de conocimiento público; no se copiaron textos de terceros.
+- Vocabulario de la comunidad chilena: "freno en T", "patines", "bota", "frame".
+- 45 videos públicos de YouTube referenciados solo por su identificador y embedidos con `youtube-nocookie.com`. Se verificó uno por uno que los 45 identificadores resuelven (oEmbed 200). No se descarga ni se aloja ningún video.
+- Noticias tomadas de World Skate (federación internacional): título propio, resumen propio, fecha y enlace al artículo original. Nunca el artículo completo.
+- La sección de distribuidores no muestra stock, precios ni disponibilidad, y los enlaces son directos al sitio oficial (sin afiliados).
+
+### Arquitectura de contenido
+
+- `types/index.ts` define las entidades editoriales: `Discipline`, `Brand`, `SkateModel`, `Tutorial`, `Article`, `NewsItem`, `Distributor`, `Video`, más `ContentBlock`, `SpecItem`, `Technique` y `SkillLevel`.
+- `ContentSource` se amplió con lectura de colección y de detalle por id para cada entidad. Los componentes y rutas consumen solo `services/`, nunca `data/`.
+- Todo el contenido vive en `frontend/src/data/*.ts`, desacoplado de la interfaz: cuando exista el panel propio, se reemplaza la implementación mock por `HttpContentSource` sin tocar componentes.
+- Las relaciones entre entidades son por id (`videoIds`, `articleIds`, `disciplineIds`, `brandId`), tal como quedarán en la base de datos.
+
+### Design System
+
+- Nuevos componentes de contenido: `YouTubeEmbed`, `Breadcrumbs`, `PageHeader`, `Prose`, `SpecList`, `BulletList`, `Seal`.
+- Nuevas tarjetas: `BrandCard`, `ModelCard`, `TutorialCard`, `NewsCard`, `DistributorCard`. `VideoCard` ahora muestra la miniatura real del video.
+- `not-found.tsx` propio, en la misma estética.
+- Navbar y footer con rutas reales (`Link` de Next, no anclas). Footer actualizado a `© ProRoller` / `Aprende. Progresa. Patina.` / `Desarrollado por KODWELL`.
+- Toda la copia nueva vive en `i18n/messages/es.ts`; ningún componente tiene texto literal.
+
+## Decisiones técnicas tomadas
+
+| Decisión                                                  | Motivo                                                                                              |
+| --------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| Slug = id de la entidad                                   | La URL no depende de un campo aparte y sigue siendo válida cuando el contenido venga de la API.     |
+| Embeds vía `youtube-nocookie.com` con `loading="lazy"`    | Cumple "no descargar ni alojar videos" y reduce el rastreo antes de que el usuario interactúe.      |
+| Miniaturas de YouTube con `next/image` y `remotePatterns` | Es la única imagen de terceros cuyo uso está claramente asociado al embed del propio video.         |
+| Fichas de modelo sin imagen, con marcador visible         | No hay decisión de licencias todavía (ver pendientes); el hueco está listo en el tipo `SkateModel`. |
+| Especificaciones redactadas como "configuración habitual" | Cada modelo tiene variantes por año y mercado; no se afirma un dato exacto que pueda ser falso.     |
+| Noticias con fuente única (World Skate) y fecha           | Es la fuente oficial verificable del deporte; queda pendiente definir la política editorial.        |
+| `lib/metadata.ts` para la metadata de página              | Una sola forma de generar título, canonical y Open Graph en todas las rutas.                        |
+| Sitemap generado desde `services/`                        | Las rutas nuevas entran solas al sitemap, hoy con mocks y mañana con la API.                        |
+
+## Problemas encontrados
+
+- Los sitios de Alacalufe y Decathlon Chile responden `403` a peticiones automatizadas (Cloudflare), por lo que su descripción se redactó de forma conservadora y sus logos quedaron pendientes.
+- Las especificaciones publicadas de un mismo modelo varían entre tiendas y años (tamaño de rueda, tipo de frame). Se optó por especificaciones generales antes que por datos exactos no verificables.
+- `Video` ya no tiene `duration`: el dato no está disponible sin llamar a la API de YouTube y no aporta al MVP.
+
+## Sugerencias para el siguiente Sprint
+
+1. Definir el modelo de datos de estas entidades con el Product Owner; el contenido de `data/` ya sirve como esquema de referencia.
+2. Exponer los primeros endpoints REST de lectura y añadir `HttpContentSource`.
+3. Definir la política de imágenes (modelos, marcas, distribuidores): banco propio, cesión de las marcas o imágenes con licencia explícita.
+4. Definir de dónde y cada cuánto se actualizan las noticias, y si se automatiza con un feed.
+5. Activar el buscador sobre el contenido ya existente (disciplinas, modelos, tutoriales, artículos).
+
+## Qué queda pendiente
+
+- Imágenes de las fichas de modelo y logos de los distribuidores: pendientes de la decisión de licencias.
+- Política de actualización de noticias.
+- Buscador funcional, botón "Comenzar" definitivo y tarjetas de "¿Quién eres?" (siguen siendo visuales).
+- El "Comparador de patines" de la sección "Aprende antes de comprar" sigue sin ruta propia.
+- Login, pagos, entrenamientos, IA, progreso, Plus/Elite, panel de administración y modelo de datos: fuera del alcance autorizado.
+
+---
+
 # Sprint 1 — Base del proyecto y Landing Page
 
 ## Qué se implementó

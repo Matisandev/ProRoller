@@ -1,4 +1,4 @@
-import { sectionIds } from '@/config/navigation';
+import { routes, sectionIds } from '@/config/navigation';
 import { getMessages } from '@/i18n';
 import { Button } from '@/components/ui/Button';
 import { Reveal } from '@/components/ui/Reveal';
@@ -30,8 +30,10 @@ export function HeroSection() {
             {hero.subtitle}
           </p>
           <div className="mt-12 flex flex-wrap gap-4">
-            <Button size="lg">{hero.primaryCta}</Button>
-            <Button size="lg" variant="secondary" href={`#${sectionIds.disciplines}`}>
+            <Button size="lg" href={routes.tutorials}>
+              {hero.primaryCta}
+            </Button>
+            <Button size="lg" variant="secondary" href={routes.disciplines}>
               {hero.secondaryCta}
             </Button>
           </div>

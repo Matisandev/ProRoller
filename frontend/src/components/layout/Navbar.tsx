@@ -1,7 +1,8 @@
 'use client';
 
+import Link from 'next/link';
 import { useState } from 'react';
-import { primaryNav, sectionIds } from '@/config/navigation';
+import { primaryNav, routes } from '@/config/navigation';
 import { getMessages } from '@/i18n';
 import { Button } from '@/components/ui/Button';
 import { Logo } from '@/components/ui/Logo';
@@ -18,14 +19,14 @@ export function Navbar() {
         aria-label={nav.primaryAriaLabel}
         className="mx-auto flex h-16 max-w-6xl items-center gap-6 px-6"
       >
-        <Logo href={`#${sectionIds.home}`} />
+        <Logo href={routes.home} />
 
         <ul className="hidden items-center gap-6 text-sm text-ink-muted lg:flex">
           {primaryNav.map((item) => (
             <li key={item.key}>
-              <a href={item.href} className="transition-colors duration-300 hover:text-brand">
+              <Link href={item.href} className="transition-colors duration-300 hover:text-brand">
                 {nav[item.key]}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -34,7 +35,7 @@ export function Navbar() {
           <SearchBar
             label={common.searchAriaLabel}
             placeholder={common.search}
-            className="w-44 xl:w-56"
+            className="w-40 xl:w-52"
           />
           <Button size="sm">{common.signIn}</Button>
         </div>
@@ -57,13 +58,13 @@ export function Navbar() {
           <ul className="space-y-4 text-sm text-ink-muted">
             {primaryNav.map((item) => (
               <li key={item.key}>
-                <a
+                <Link
                   href={item.href}
                   onClick={() => setMenuOpen(false)}
                   className="transition-colors duration-300 hover:text-brand"
                 >
                   {nav[item.key]}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

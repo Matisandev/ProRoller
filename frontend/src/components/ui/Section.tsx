@@ -7,11 +7,20 @@ interface SectionProps {
   eyebrow?: string;
   title?: string;
   description?: string;
+  action?: ReactNode;
   children: ReactNode;
   className?: string;
 }
 
-export function Section({ id, eyebrow, title, description, children, className }: SectionProps) {
+export function Section({
+  id,
+  eyebrow,
+  title,
+  description,
+  action,
+  children,
+  className,
+}: SectionProps) {
   return (
     <section id={id} className={cn('px-6 py-24 sm:py-32', className)}>
       <div className="mx-auto max-w-6xl">
@@ -33,6 +42,7 @@ export function Section({ id, eyebrow, title, description, children, className }
           </Reveal>
         )}
         {children}
+        {action !== undefined && <div className="mt-12">{action}</div>}
       </div>
     </section>
   );

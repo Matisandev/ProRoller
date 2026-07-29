@@ -14,7 +14,9 @@ proroller/
 
 ## Estado actual
 
-Sprint 1: base del proyecto y Landing Page con datos mock. Sin autenticación, sin pagos, sin entrenamientos, sin IA, sin rutas adicionales, sin funcionalidades Premium.
+Sprint 2: plataforma navegable con contenido de demostración (disciplinas, marcas, modelos, tutoriales, artículos, noticias y distribuidores recomendados). El contenido es temporal y vive en `frontend/src/data/`, detrás del contrato `ContentSource`, para reemplazarlo por la API REST y el panel propio sin tocar la interfaz.
+
+Sin autenticación, sin pagos, sin entrenamientos, sin IA, sin registro de progreso y sin funcionalidades Premium.
 
 ## Puesta en marcha con Docker
 
