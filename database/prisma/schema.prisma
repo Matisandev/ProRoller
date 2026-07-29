@@ -1,0 +1,10 @@
+// Esquema base de ProRoller. Sprint 1 no define modelos todavía.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}

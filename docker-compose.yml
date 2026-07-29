@@ -1,0 +1,64 @@
+services:
+  database:
+    image: postgres:16-alpine
+    container_name: proroller-database
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-proroller}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-proroller}
+      POSTGRES_DB: ${POSTGRES_DB:-proroller}
+    ports:
+      - '${POSTGRES_PORT:-5432}:5432'
+    volumes:
+      - database-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U ${POSTGRES_USER:-proroller} -d ${POSTGRES_DB:-proroller}']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      target: development
+    container_name: proroller-backend
+    restart: unless-stopped
+    environment:
+      NODE_ENV: development
+      PORT: ${BACKEND_PORT:-3001}
+      DATABASE_URL: postgresql://${POSTGRES_USER:-proroller}:${POSTGRES_PASSWORD:-proroller}@database:5432/${POSTGRES_DB:-proroller}?schema=public
+    ports:
+      - '${BACKEND_PORT:-3001}:${BACKEND_PORT:-3001}'
+    volumes:
+      - ./backend:/app
+      - backend-node-modules:/app/node_modules
+    depends_on:
+      database:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      target: development
+    container_name: proroller-frontend
+    restart: unless-stopped
+    environment:
+      NODE_ENV: development
+      PORT: ${FRONTEND_PORT:-3000}
+      NEXT_PUBLIC_API_URL: http://localhost:${BACKEND_PORT:-3001}
+    ports:
+      - '${FRONTEND_PORT:-3000}:${FRONTEND_PORT:-3000}'
+    volumes:
+      - ./frontend:/app
+      - frontend-node-modules:/app/node_modules
+      - frontend-next-cache:/app/.next
+    depends_on:
+      - backend
+
+volumes:
+  database-data:
+  backend-node-modules:
+  frontend-node-modules:
+  frontend-next-cache:

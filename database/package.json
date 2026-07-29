@@ -1,0 +1,16 @@
+{
+  "name": "@proroller/database",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Esquema Prisma y migraciones de ProRoller",
+  "scripts": {
+    "prisma": "prisma",
+    "generate": "prisma generate",
+    "migrate:dev": "prisma migrate dev",
+    "migrate:deploy": "prisma migrate deploy",
+    "studio": "prisma studio"
+  },
+  "devDependencies": {
+    "prisma": "^6.2.1"
+  }
+}
