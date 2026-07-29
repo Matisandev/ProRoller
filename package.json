@@ -18,6 +18,11 @@
     "format:check": "prettier --check .",
     "prepare": "husky || true"
   },
+  "dependencies": {
+    "next": "15.5.22",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
