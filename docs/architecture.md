@@ -16,11 +16,26 @@ Se usan workspaces de npm: un único `npm install` en la raíz instala los tres 
 Capas, de fuera hacia dentro:
 
 1. `app/` — rutas y metadata. Sin lógica de presentación.
-2. `components/landing/` — una sección por bloque de la landing. Piden datos a `services/` y textos a `i18n/`.
+2. `components/landing/` — una sección por bloque de la portada. Piden datos a `services/` y textos a `i18n/`.
 3. `components/cards/` — tarjetas de dominio: traducen una entidad a componentes del Design System.
 4. `components/ui/` — Design System propio, sin conocimiento del dominio.
 5. `services/` — única puerta de acceso al contenido.
-6. `data/` — datos mock del Sprint 1, consumidos solo por la implementación mock de `services/`.
+6. `data/` — contenido de demostración del MVP, consumido solo por la implementación mock de `services/`.
+
+### Rutas
+
+| Ruta                  | Contenido                                |
+| --------------------- | ---------------------------------------- |
+| `/`                   | Portada                                  |
+| `/disciplinas[/slug]` | Índice y ficha de disciplina             |
+| `/marcas[/slug]`      | Índice y ficha de marca                  |
+| `/modelos[/slug]`     | Índice y ficha de modelo                 |
+| `/tutoriales[/slug]`  | Índice y tutorial de técnica             |
+| `/articulos[/slug]`   | Índice y artículo                        |
+| `/noticias`           | Resúmenes con enlace a la fuente oficial |
+| `/distribuidores`     | Directorio editorial de distribuidores   |
+
+Las rutas de detalle usan `generateStaticParams()` y `generateMetadata()`, y responden `notFound()` cuando el slug no existe. Los identificadores del contenido son los slugs: al pasar a la API REST, la clave sigue siendo la misma.
 
 ### Paso de mocks a la API REST
 
@@ -39,13 +54,15 @@ Ningún componente escribe texto literal. Añadir un idioma implica crear un dic
 - Server Components por defecto; Client Components solo en `Navbar`, `Modal` y `Reveal`.
 - Las secciones que obtienen contenido se renderizan dentro de `Suspense`, con `SkeletonGrid` como fallback, de modo que al conectar la API no haya que reestructurar la página.
 - `next/font` con `display: swap` para la tipografía.
-- Cuando existan imágenes reales se usará `next/image`; en el Sprint 1 no hay imágenes.
+- Los videos se muestran con embeds de `youtube-nocookie.com` en `iframe` con `loading="lazy"`. ProRoller no descarga ni aloja videos.
+- Las miniaturas de YouTube se sirven con `next/image` (`remotePatterns` en `next.config.ts`). Las imágenes de modelos y logos de distribuidores quedan pendientes de definir su licencia.
 
 ### SEO
 
 - Metadata y Open Graph en `app/layout.tsx`, con `metadataBase` desde `NEXT_PUBLIC_SITE_URL`.
 - `app/sitemap.ts` y `app/robots.ts` generan `sitemap.xml` y `robots.txt`.
-- Los identificadores de sección usan slugs legibles (`#disciplinas`, `#articulos`, ...), preparados para convertirse en rutas amigables.
+- `app/sitemap.ts` recorre el contenido desde `services/`, por lo que las rutas dinámicas entran solas al sitemap.
+- Cada página construye su metadata con `lib/metadata.ts` (`title`, `description`, canonical y Open Graph).
 
 ### Accesibilidad
 

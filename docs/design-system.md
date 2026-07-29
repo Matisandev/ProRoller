@@ -45,7 +45,9 @@ El blanco puro no se usa como color predominante: el texto principal es `ink`.
 | `Logo`           | Server | Marca ProRoller.                                                                                                      |
 | `icons.tsx`      | Server | Iconos SVG propios.                                                                                                   |
 
-Las tarjetas de dominio (`InfoCard`, `DisciplineCard`, `ArticleCard`, `VideoCard`, `ResultCard`, `StoreCard`) viven en `components/cards/` y se construyen sobre los componentes anteriores.
+Las tarjetas de dominio (`InfoCard`, `DisciplineCard`, `ArticleCard`, `VideoCard`, `ResultCard`, `BrandCard`, `ModelCard`, `TutorialCard`, `NewsCard`, `DistributorCard`) viven en `components/cards/` y se construyen sobre los componentes anteriores.
+
+Los componentes de contenido editorial son `PageHeader`, `Breadcrumbs`, `Prose`, `SpecList`, `BulletList`, `Seal` y `YouTubeEmbed`.
 
 ## Reglas
 
