@@ -55,7 +55,7 @@ Husky ejecuta Prettier sobre los archivos en staging (`pre-commit`) y valida los
 
 ## Despliegue
 
-El frontend se despliega en Vercel con **Root Directory = `frontend`** (es un monorepo: en la raíz no hay aplicación Next.js y el despliegue devolvería 404). Detalle completo en [docs/deployment.md](docs/deployment.md).
+El frontend se despliega en Vercel importando el repositorio sin configuración manual: el `vercel.json` de la raíz construye el workspace `frontend`. Detalle completo en [docs/deployment.md](docs/deployment.md).
 
 ## Documentación
 

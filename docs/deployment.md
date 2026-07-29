@@ -2,27 +2,51 @@
 
 ## Frontend en Vercel
 
-ProRoller es un monorepo: la aplicación Next.js vive en `frontend/`, no en la raíz. Vercel solo detecta Next.js si el proyecto apunta a ese directorio. Con el Root Directory en la raíz del repositorio, el despliegue no encuentra ninguna aplicación y `/` responde `404 NOT_FOUND`.
+ProRoller es un monorepo con workspaces de npm: la aplicación Next.js vive en `frontend/`, no en la raíz.
+
+### El problema
+
+Vercel detecta el framework leyendo el `package.json` del Root Directory del proyecto. Con el Root Directory en la raíz del repositorio (valor por defecto al importar), encuentra el `package.json` del workspace raíz, que no declara `next`, y el build termina con:
+
+```
+Error: No Next.js version detected. Make sure your package.json has "next" in either
+"dependencies" or "devDependencies".
+```
+
+### La solución aplicada
+
+El repositorio está preparado para desplegarse **sin configuración manual en Vercel**:
+
+1. **`vercel.json` en la raíz**: instala el monorepo completo, construye solo el workspace del frontend y apunta al output de Next.js.
+
+   ```json
+   {
+     "framework": "nextjs",
+     "installCommand": "npm install",
+     "buildCommand": "npm run build --workspace frontend",
+     "outputDirectory": "frontend/.next"
+   }
+   ```
+
+2. **`next`, `react` y `react-dom` declarados en el `package.json` de la raíz**, con la **misma versión exacta** que `frontend/package.json`. Existen solo para que Vercel detecte Next.js desde la raíz; npm los deduplica con los del workspace (`npm ls next react` muestra `deduped`), así que no se instalan dos copias.
+
+   > Al subir la versión de Next.js o de React hay que hacerlo en los dos `package.json` a la vez. Si las versiones se desincronizan, npm instala dos copias de React y el build del frontend falla al prerenderizar.
+
+3. **`frontend/vercel.json`**: cubre el caso en que el proyecto de Vercel sí apunte a `frontend` como Root Directory (la configuración recomendada oficialmente para monorepos). Ambos caminos funcionan.
+
+4. **`prepare: husky || true`** en la raíz: en el entorno de build de Vercel no hay `.git`, y `husky` no puede instalar los hooks.
 
 ### Configuración del proyecto en Vercel
 
-En **Project Settings → General**:
-
-| Ajuste                                         | Valor                                                                         |
-| ---------------------------------------------- | ----------------------------------------------------------------------------- |
-| Root Directory                                 | `frontend`                                                                    |
-| Framework Preset                               | Next.js (se detecta automáticamente)                                          |
-| Build Command                                  | `npm run build` (por defecto)                                                 |
-| Output Directory                               | `.next` (por defecto)                                                         |
-| Install Command                                | por defecto (Vercel detecta el workspace de npm y usa el lockfile de la raíz) |
-| Include source files outside of Root Directory | activado (por defecto)                                                        |
-| Node.js Version                                | 20.x                                                                          |
-
-`frontend/vercel.json` fija framework, comando de build y directorio de salida, de modo que la única opción que hay que ajustar a mano es el **Root Directory**.
+| Ajuste                                             | Valor                                           |
+| -------------------------------------------------- | ----------------------------------------------- |
+| Root Directory                                     | vacío (raíz) o `frontend`; ambos funcionan      |
+| Framework Preset                                   | Next.js                                         |
+| Build Command / Output Directory / Install Command | por defecto (los define `vercel.json`)          |
+| Include source files outside of Root Directory     | activado (solo si Root Directory es `frontend`) |
+| Node.js Version                                    | 20.x                                            |
 
 ### Variables de entorno
-
-En **Project Settings → Environment Variables**:
 
 | Variable               | Valor                                            | Obligatoria          |
 | ---------------------- | ------------------------------------------------ | -------------------- |
@@ -30,12 +54,11 @@ En **Project Settings → Environment Variables**:
 
 Si no se define, metadata, Open Graph, `sitemap.xml` y `robots.txt` usan `http://localhost:3000`.
 
-### Comprobación local del build de Vercel
+### Comprobación local
 
 ```bash
-cd frontend
 npm install
-npm run build
+npm run build --workspace frontend
 ```
 
 La salida debe incluir la ruta `/` como prerenderizada:
