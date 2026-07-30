@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { getMessages } from '@/i18n';
+import { getRequestMessages } from '@/i18n/server';
 
 export interface Crumb {
   readonly label: string;
@@ -10,8 +10,8 @@ interface BreadcrumbsProps {
   items: readonly Crumb[];
 }
 
-export function Breadcrumbs({ items }: BreadcrumbsProps) {
-  const { common } = getMessages();
+export async function Breadcrumbs({ items }: BreadcrumbsProps) {
+  const { common } = await getRequestMessages();
 
   return (
     <nav aria-label={common.breadcrumbAriaLabel}>

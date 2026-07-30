@@ -2,15 +2,16 @@ import Link from 'next/link';
 import { Badge } from '@/components/ui/Badge';
 import { Card } from '@/components/ui/Card';
 import { routes } from '@/config/navigation';
-import { getMessages, interpolate } from '@/i18n';
+import { interpolate } from '@/i18n';
+import { getRequestMessages } from '@/i18n/server';
 import type { Brand } from '@/types';
 
 interface BrandCardProps {
   brand: Brand;
 }
 
-export function BrandCard({ brand }: BrandCardProps) {
-  const { brands: messages } = getMessages();
+export async function BrandCard({ brand }: BrandCardProps) {
+  const { brands: messages } = await getRequestMessages();
 
   return (
     <Link href={routes.brand(brand.id)} className="block h-full">

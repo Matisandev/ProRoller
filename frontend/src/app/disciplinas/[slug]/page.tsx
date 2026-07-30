@@ -1,19 +1,20 @@
 import { notFound } from 'next/navigation';
 import { ArticleCard } from '@/components/cards/ArticleCard';
+import { ModelCard } from '@/components/cards/ModelCard';
 import { TutorialCard } from '@/components/cards/TutorialCard';
-import { Badge } from '@/components/ui/Badge';
 import { BulletList } from '@/components/ui/BulletList';
 import { CardGrid } from '@/components/ui/CardGrid';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { Section } from '@/components/ui/Section';
-import { YouTubeEmbed } from '@/components/ui/YouTubeEmbed';
+import { VideoList } from '@/components/ui/VideoList';
 import { routes } from '@/config/navigation';
-import { getMessages } from '@/i18n';
+import { getRequestMessages } from '@/i18n/server';
 import { buildPageMetadata } from '@/lib/metadata';
 import {
   getArticlesByIds,
   getDiscipline,
   getDisciplines,
+  getSkateModelsByDiscipline,
   getTutorialsByDiscipline,
   getVideosByIds,
 } from '@/services';
@@ -44,11 +45,20 @@ export default async function DisciplinePage({ params }: DisciplinePageProps) {
   const discipline = await getDiscipline(slug);
   if (discipline === null) notFound();
 
-  const { disciplines: messages, nav, levels, articles: articleMessages } = getMessages();
-  const [videos, relatedArticles, relatedTutorials] = await Promise.all([
+  const {
+    disciplines: messages,
+    nav,
+    articles: articleMessages,
+    models: modelMessages,
+    tutorials: tutorialMessages,
+    videos: videoMessages,
+  } = await getRequestMessages();
+
+  const [videos, relatedArticles, relatedTutorials, relatedModels] = await Promise.all([
     getVideosByIds(discipline.videoIds),
     getArticlesByIds(discipline.articleIds),
     getTutorialsByDiscipline(discipline.id),
+    getSkateModelsByDiscipline(discipline.id),
   ]);
 
   return (
@@ -62,12 +72,11 @@ export default async function DisciplinePage({ params }: DisciplinePageProps) {
           { label: nav.disciplines, href: routes.disciplines },
           { label: discipline.name },
         ]}
-        meta={
-          <Badge variant="neutral">
-            {messages.recommendedLevel}: {levels[discipline.recommendedLevel]}
-          </Badge>
-        }
       />
+
+      <Section>
+        <p className="max-w-3xl text-lg leading-relaxed text-ink-muted">{discipline.description}</p>
+      </Section>
 
       <Section title={messages.history}>
         <div className="max-w-3xl space-y-4">
@@ -82,6 +91,12 @@ export default async function DisciplinePage({ params }: DisciplinePageProps) {
       <Section title={messages.goals}>
         <div className="max-w-3xl">
           <BulletList items={discipline.goals} />
+        </div>
+      </Section>
+
+      <Section title={messages.whatToLearnFirst}>
+        <div className="max-w-3xl">
+          <BulletList items={discipline.whatToLearnFirst} />
         </div>
       </Section>
 
@@ -102,28 +117,31 @@ export default async function DisciplinePage({ params }: DisciplinePageProps) {
         </ul>
       </Section>
 
-      {videos.length > 0 && (
-        <Section title={messages.relatedVideos}>
-          <ul className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-            {videos.map((video) => (
-              <li key={video.id}>
-                <YouTubeEmbed youtubeId={video.youtubeId} title={video.title} />
-                <p className="mt-3 text-sm font-medium">{video.title}</p>
-                <p className="text-xs text-ink-faint">{video.channel}</p>
-              </li>
-            ))}
-          </ul>
-        </Section>
-      )}
-
       {relatedTutorials.length > 0 && (
         <Section title={messages.relatedTutorials}>
           <CardGrid
             items={relatedTutorials}
             getKey={(tutorial) => tutorial.id}
             renderItem={(tutorial) => <TutorialCard tutorial={tutorial} />}
-            emptyMessage={messages.relatedTutorials}
+            emptyMessage={tutorialMessages.empty}
           />
+        </Section>
+      )}
+
+      {relatedModels.length > 0 && (
+        <Section title={messages.relatedModels}>
+          <CardGrid
+            items={relatedModels}
+            getKey={(model) => model.id}
+            renderItem={(model) => <ModelCard model={model} />}
+            emptyMessage={modelMessages.empty}
+          />
+        </Section>
+      )}
+
+      {videos.length > 0 && (
+        <Section title={messages.relatedVideos}>
+          <VideoList videos={videos} notice={videoMessages.embedNotice} />
         </Section>
       )}
 

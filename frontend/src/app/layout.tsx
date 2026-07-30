@@ -5,6 +5,7 @@ import { Navbar } from '@/components/layout/Navbar';
 import { siteUrl } from '@/config/site';
 import { defaultLocale } from '@/i18n/config';
 import { getMessages } from '@/i18n';
+import { getRequestLocale, getRequestMessages } from '@/i18n/server';
 import './globals.css';
 
 const inter = Inter({
@@ -40,17 +41,19 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const [locale, { common, nav }] = await Promise.all([getRequestLocale(), getRequestMessages()]);
+
   return (
-    <html lang={defaultLocale} className={inter.variable}>
+    <html lang={locale} className={inter.variable}>
       <body className="min-h-screen bg-night font-sans text-ink antialiased">
         <a
           href={`#${MAIN_CONTENT_ID}`}
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-100 focus:rounded-full focus:bg-brand focus:px-4 focus:py-2 focus:text-night"
         >
-          {getMessages().common.skipToContent}
+          {common.skipToContent}
         </a>
-        <Navbar />
+        <Navbar locale={locale} nav={nav} common={common} />
         <main id={MAIN_CONTENT_ID}>{children}</main>
         <Footer />
       </body>

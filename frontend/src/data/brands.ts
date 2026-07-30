@@ -23,7 +23,7 @@ export const brands: readonly Brand[] = [
     country: 'Alemania',
     foundedYear: 1995,
     description:
-      'Fabricante alemán con el catálogo más amplio del patinaje: freeskate, velocidad, urbano, quads y componentes.',
+      'Fabricante alemán con el catálogo más amplio del patinaje: freeskate, velocidad, urbano y componentes.',
     history: [
       'Powerslide se fundó en Alemania a mediados de los años noventa y creció junto al auge del patín en línea. A diferencia de marcas especializadas en una disciplina, apostó por cubrir el mercado completo.',
       'Su estrategia de componentes intercambiables —frames, ruedas, rodamientos y botas que se combinan entre líneas— la convirtió en referencia para quienes arman su propio setup. También impulsó el uso de ruedas grandes en patinaje urbano.',

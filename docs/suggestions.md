@@ -32,3 +32,10 @@ Mejoras detectadas durante los Sprints 1 y 2. Ninguna está implementada: requie
 
 - Pipeline de despliegue y entornos (staging, producción).
 - Dependabot o Renovate para actualizaciones de dependencias.
+
+## Pendientes del Sprint 2 (plataforma completa)
+
+- **Información real de "Dónde patinar"**: spots, rutas y academias están con datos de ejemplo y aviso de sección en desarrollo. Falta la información verificable (nombres, ciudades, superficies, sitios web y redes) y, si se quiere mapa embebido, definir el proveedor.
+- **Traducción del contenido editorial**: la interfaz ya cambia de idioma con la cookie `proroller_locale`. Falta decidir si el contenido se traduce por entidad (campos por idioma) o por colección, y si se habilitan rutas `/[locale]/...` para SEO multilingüe.
+- **Actualización de noticias, resultados y eventos**: definir cada cuánto se revisan y quién los aprueba editorialmente.
+- **Fotografía del autor**: se referencia una imagen pública propia; conviene alojarla en el proyecto para no depender de un dominio externo.

@@ -1,11 +1,21 @@
 import type { Tutorial } from '@/types';
 
+/**
+ * Contenido de demostración del MVP, redactado por ProRoller a partir de fuentes
+ * públicas. El nivel de dificultad vive acá, nunca en las disciplinas.
+ */
 export const tutorials: readonly Tutorial[] = [
   {
     id: 'postura-basica',
-    name: 'Postura básica',
+    name: 'Postura',
     level: 'principiante',
     summary: 'La posición desde la que se aprende todo lo demás.',
+    goals: [
+      'Sostener una posición estable sin depender de los brazos.',
+      'Dejar de mirar los pies mientras patinas.',
+      'Repartir el peso al centro del patín.',
+    ],
+    prerequisites: ['Patines de tu talla y casco puesto.'],
     explanation: [
       'La postura básica es la posición de trabajo del patinador: pies a la altura de los hombros, rodillas flectadas, cadera algo atrás, tronco levemente inclinado hacia adelante y mirada al frente. Si las rodillas están estiradas, cualquier irregularidad del suelo te desestabiliza.',
       'El error más común es mirar los pies. Al bajar la vista el peso se va hacia atrás y el patín se escapa hacia adelante. La corrección es simple: mira a unos cinco metros por delante, no al suelo.',
@@ -17,14 +27,81 @@ export const tutorials: readonly Tutorial[] = [
       'Peso repartido al centro del patín.',
       'Brazos separados del cuerpo para equilibrar.',
     ],
-    disciplineIds: ['freeskate', 'slalom', 'quads', 'hielo'],
+    disciplineIds: ['freeskate', 'slalom', 'speed'],
     videoIds: ['postura-basica', 'aprender-desde-cero'],
+    articleIds: ['primeros-patines', 'errores-comunes'],
+  },
+  {
+    id: 'caidas',
+    name: 'Cómo caer correctamente',
+    level: 'principiante',
+    summary: 'La primera técnica que deberías entrenar: caer sin lesionarte.',
+    goals: [
+      'Caer hacia adelante y de lado de forma controlada.',
+      'Repartir el impacto en las protecciones y no en las manos.',
+      'Perder el miedo que bloquea el aprendizaje.',
+    ],
+    prerequisites: [
+      'Casco, muñequeras, rodilleras y coderas puestas.',
+      'Postura básica cómoda, sin avanzar.',
+      'Superficie lisa y despejada, idealmente con pasto al lado.',
+    ],
+    explanation: [
+      'Caer es parte del patinaje, así que se entrena igual que cualquier otra técnica. La caída más segura es hacia adelante: flectas mucho las rodillas, bajas el centro de gravedad y recibes el suelo con las rodilleras primero y las muñequeras después, deslizando en vez de golpeando.',
+      'Lo que hay que evitar es la caída hacia atrás y el apoyo con la mano abierta. Al caer de espaldas el golpe llega a la cadera, la espalda o la cabeza; por eso el peso nunca debe irse a los talones. Y una mano abierta contra el suelo concentra todo el impacto en la muñeca: por eso se usan muñequeras y se cierran los puños al caer.',
+      'Practica en seco: arrodíllate desde la posición de patinaje, primero detenido y después rodando muy despacio. Repítelo hasta que el movimiento salga sin pensarlo. Cuando la caída deja de asustarte, el resto del aprendizaje avanza mucho más rápido.',
+    ],
+    keyPoints: [
+      'Siempre hacia adelante: rodillas, luego muñequeras.',
+      'Nunca el peso en los talones.',
+      'Puños cerrados, jamás la mano abierta.',
+      'Se entrena detenido antes que en movimiento.',
+    ],
+    disciplineIds: ['freeskate', 'slalom', 'jump', 'slide', 'aggressive', 'downhill'],
+    videoIds: ['caidas-ferny', 'caidas-on-top', 'caidas-ejercicios'],
+    articleIds: ['por-que-usar-casco', 'errores-comunes'],
+  },
+  {
+    id: 'freno-en-cuna',
+    name: 'Freno en cuña',
+    level: 'principiante',
+    summary: 'El primer freno que puedes usar el mismo día que te subes a los patines.',
+    goals: [
+      'Reducir velocidad sin necesitar el taco ni una técnica avanzada.',
+      'Controlar la separación de los patines mientras frenas.',
+      'Detenerte por completo en plano.',
+    ],
+    prerequisites: ['Postura básica resuelta.', 'Rodar en línea recta sin tambalearte.'],
+    explanation: [
+      'En el freno en cuña, también llamado plow stop, los dos patines siguen rodando hacia adelante pero se abren en forma de "A": las puntas quedan separadas y los talones se juntan. Al empujar las ruedas hacia afuera contra el suelo, el patín pierde velocidad de forma progresiva.',
+      'La fuerza sale de las piernas, no de los tobillos. Rodillas bien flectadas, peso al centro y presión hacia afuera con las dos plantas al mismo tiempo. Si el peso se va hacia atrás, los patines se escapan; si se va a un solo pie, giras en vez de frenar.',
+      'Es el freno ideal para empezar porque no exige levantar ningún pie ni cambiar la postura. Practícalo a poca velocidad en plano, aumentando la presión hasta detenerte por completo. Después llegará el freno en T, que es más eficiente a mayor velocidad.',
+    ],
+    keyPoints: [
+      'Puntas afuera, talones juntos, forma de "A".',
+      'Presión pareja con las dos piernas.',
+      'Rodillas flectadas y peso al centro.',
+      'Sirve tanto para bajar velocidad como para detenerse.',
+    ],
+    disciplineIds: ['freeskate', 'slalom', 'downhill'],
+    videoIds: ['freno-en-cuna-sikana', 'freno-en-cuna-ferny', 'freno-en-cuna-sevilla'],
+    articleIds: ['primeros-patines', 'errores-comunes'],
   },
   {
     id: 'freno-en-t',
     name: 'Freno en T',
     level: 'principiante',
-    summary: 'El primer freno real que debes aprender, sin depender del taco.',
+    summary: 'El freno más usado en la calle, sin depender del taco.',
+    goals: [
+      'Frenar de forma progresiva a velocidad media.',
+      'Mantener la dirección mientras frenas.',
+      'Aprender el freno con los dos pies.',
+    ],
+    prerequisites: [
+      'Postura básica resuelta.',
+      'Freno en cuña funcionando.',
+      'Equilibrio sobre un solo patín durante algunos segundos.',
+    ],
     explanation: [
       'En el freno en T el pie de apoyo sigue rodando hacia adelante mientras el otro patín se cruza por detrás en perpendicular, arrastrando las ruedas. La forma de T que dibujan los pies le da el nombre.',
       'Todo el peso va sobre el pie de adelante. El pie que arrastra solo apoya lo suficiente para raspar: si le cargas peso, el patín se traba y te gira el cuerpo. La presión se aumenta de a poco hasta detenerte.',
@@ -36,14 +113,21 @@ export const tutorials: readonly Tutorial[] = [
       'Cadera y hombros mirando hacia adelante.',
       'Practica con los dos pies, no solo con el dominante.',
     ],
-    disciplineIds: ['freeskate', 'slalom'],
+    disciplineIds: ['freeskate', 'slalom', 'downhill'],
     videoIds: ['freno-en-t-ferny', 'freno-en-t-proyecto', 'freno-en-t-caro'],
+    articleIds: ['como-elegir-ruedas', 'errores-comunes'],
   },
   {
     id: 'giro-natural',
     name: 'Giro natural',
     level: 'principiante',
     summary: 'Girar inclinando el cuerpo, sin levantar los pies del suelo.',
+    goals: [
+      'Trazar curvas en las dos direcciones sin perder velocidad.',
+      'Entender el trabajo de los filos de las ruedas.',
+      'Preparar el terreno para el crossover.',
+    ],
+    prerequisites: ['Postura básica resuelta.', 'Al menos un freno confiable.'],
     explanation: [
       'El giro natural, también llamado giro paralelo, se hace inclinando el cuerpo hacia el interior de la curva con los patines paralelos. No se levanta ningún pie: son los filos de las ruedas los que trazan la curva.',
       'El movimiento parte desde los hombros y la mirada: si giras la cabeza hacia donde quieres ir, el cuerpo sigue. Un patín queda ligeramente adelantado —el interior de la curva— para dar estabilidad.',
@@ -55,14 +139,21 @@ export const tutorials: readonly Tutorial[] = [
       'Patín interior levemente adelantado.',
       'Rodillas flectadas para aguantar la fuerza lateral.',
     ],
-    disciplineIds: ['freeskate', 'slalom', 'quads', 'hielo'],
+    disciplineIds: ['freeskate', 'slalom', 'speed', 'downhill'],
     videoIds: ['giro-natural-roex', 'giro-natural-peludos'],
+    articleIds: ['freeskate-vs-slalom', 'errores-comunes'],
   },
   {
     id: 'crossover',
     name: 'Crossover',
     level: 'intermedio',
     summary: 'Cruzar un pie sobre el otro para ganar velocidad en curva.',
+    goals: [
+      'Mantener o aumentar la velocidad dentro de la curva.',
+      'Igualar el nivel técnico de los dos sentidos de giro.',
+      'Coordinar empuje y cruce sin perder la línea.',
+    ],
+    prerequisites: ['Giro natural cómodo en ambas direcciones.', 'Equilibrio sobre un solo patín.'],
     explanation: [
       'El crossover, o cruzado, consiste en cruzar el pie exterior por delante del interior mientras se recorre una curva. Permite mantener o aumentar la velocidad en vez de perderla, y es obligatorio en velocidad y en slalom.',
       'La secuencia es: empuje del pie interior hacia el exterior de la curva, cruce del pie exterior, apoyo y recuperación. El torso se mantiene estable e inclinado hacia dentro mientras las piernas hacen el trabajo.',
@@ -74,14 +165,25 @@ export const tutorials: readonly Tutorial[] = [
       'Cruce por delante, no por detrás.',
       'Entrena ambos sentidos por igual.',
     ],
-    disciplineIds: ['speed', 'slalom', 'hielo', 'quads'],
+    disciplineIds: ['speed', 'slalom', 'freeskate'],
     videoIds: ['crossover-peludos', 'crossover-gorilla'],
+    articleIds: ['como-elegir-frame', 'freeskate-vs-slalom'],
   },
   {
     id: 'fakie',
     name: 'Fakie',
     level: 'intermedio',
     summary: 'Patinar de espaldas con control y sin perder de vista el camino.',
+    goals: [
+      'Desplazarte hacia atrás manteniendo el peso al centro.',
+      'Cambiar de adelante hacia atrás y volver.',
+      'Revisar el camino sin desestabilizarte.',
+    ],
+    prerequisites: [
+      'Postura básica y giro natural resueltos.',
+      'Freno confiable hacia adelante.',
+      'Cómo caer entrenado: acá la caída hacia atrás es el riesgo real.',
+    ],
     explanation: [
       'Fakie es patinar hacia atrás. El movimiento se genera con empujes en forma de C: cada pie dibuja un arco hacia afuera y vuelve al centro, empujando en el retorno.',
       'La clave es la posición del peso. Debe ir sobre la mitad del patín, con las rodillas bien flectadas; si el peso se va a los talones, te caes de espaldas, que es la caída más peligrosa.',
@@ -93,14 +195,25 @@ export const tutorials: readonly Tutorial[] = [
       'Revisar hacia atrás sobre ambos hombros.',
       'Aprender la transición de adelante a atrás y viceversa.',
     ],
-    disciplineIds: ['freeskate', 'aggressive', 'hielo'],
+    disciplineIds: ['freeskate', 'aggressive', 'slalom'],
     videoIds: ['fakie-roex', 'fakie-ferny'],
+    articleIds: ['errores-comunes', 'como-elegir-bota'],
   },
   {
     id: 'powerslide',
     name: 'Powerslide',
     level: 'avanzado',
     summary: 'La frenada de emergencia que funciona incluso en bajada.',
+    goals: [
+      'Detenerte en pocos metros desde velocidad alta.',
+      'Controlar la pérdida de agarre en vez de sufrirla.',
+      'Ganar autonomía para patinar en pendiente.',
+    ],
+    prerequisites: [
+      'Freno en T sólido a velocidad media.',
+      'Giro natural y fakie resueltos.',
+      'Ruedas duras y protecciones completas.',
+    ],
     explanation: [
       'El powerslide es un derrape: el patín adelantado se atraviesa en el sentido de la marcha y bloquea las ruedas, transformando la velocidad en desgaste. Es el freno más potente disponible y el único confiable en pendientes.',
       'La entrada se hace desde un giro: se rota la cadera, se estira la pierna de adelante y se atraviesa el patín mientras el peso queda sobre la pierna de atrás, que se mantiene flectada. Cuanto más peso quede atrás, más limpio el derrape.',
@@ -112,14 +225,55 @@ export const tutorials: readonly Tutorial[] = [
       'Rotación desde la cadera y los hombros.',
       'Ruedas duras: las blandas se pelan de inmediato.',
     ],
-    disciplineIds: ['freeskate', 'slide'],
+    disciplineIds: ['freeskate', 'slide', 'downhill'],
     videoIds: ['powerslide-lino', 'powerslide-emergencia', 'parallel-slide-peludos'],
+    articleIds: ['como-elegir-ruedas', 'errores-comunes'],
+  },
+  {
+    id: 'magic-slide',
+    name: 'Magic Slide',
+    level: 'avanzado',
+    summary: 'Derrape con rotación completa, uno de los más vistosos del slide.',
+    goals: [
+      'Encadenar rotación y derrape en un solo movimiento.',
+      'Controlar la salida para seguir rodando.',
+      'Ampliar el repertorio de derrapes.',
+    ],
+    prerequisites: [
+      'Powerslide limpio hacia los dos lados.',
+      'Soul slide o parallel slide ya trabajados.',
+      'Superficie lisa, sin arena, y ruedas duras.',
+    ],
+    explanation: [
+      'El magic slide combina un derrape con una rotación completa del cuerpo: el patín de apoyo atraviesa la marcha mientras el otro acompaña el giro, de modo que terminas mirando en la dirección contraria a la que entraste. Visualmente es uno de los derrapes más llamativos y técnicamente uno de los que más control de cadera exige.',
+      'Se aprende por partes. Primero la rotación en seco, para entender hasta dónde llega la cadera; después la entrada desde un derrape que ya domines; y al final la unión de ambos movimientos a baja velocidad.',
+      'La salida es lo que separa un magic slide logrado de una caída: hay que terminar con las rodillas flectadas y el peso al centro para retomar el rodado. Antes de intentarlo conviene tener protecciones completas, porque la rotación deja poco margen para reaccionar.',
+    ],
+    keyPoints: [
+      'Rotación desde la cadera, no desde los brazos.',
+      'Se entra desde un derrape ya dominado.',
+      'Salida flectada y con el peso al centro.',
+      'Superficie lisa y ruedas duras.',
+    ],
+    disciplineIds: ['slide', 'freeskate'],
+    videoIds: ['magic-slide-powerslide', 'magic-slide-skatefresh', 'magic-slide-inercia'],
+    articleIds: ['como-elegir-ruedas', 'como-elegir-bota'],
   },
   {
     id: 'soul',
     name: 'Soul',
     level: 'avanzado',
     summary: 'El grind base del aggressive, deslizando sobre la placa lateral.',
+    goals: [
+      'Deslizar sobre un obstáculo con control.',
+      'Entrar y salir del grind sin perder el rodado.',
+      'Entender el uso de la placa y el grindblock.',
+    ],
+    prerequisites: [
+      'Patines aggressive con soul plate y grindblock.',
+      'Salto y aterrizaje resueltos.',
+      'Cómo caer entrenado y protecciones completas.',
+    ],
     explanation: [
       'El soul es el grind más aprendido del aggressive: un patín desliza sobre su soul plate —la placa exterior de la bota— mientras el otro cruza y apoya en su parte interna. El cuerpo queda de costado al obstáculo.',
       'Antes de saltar a una baranda conviene practicar el apoyo en el borde de un cajón bajo, sin velocidad, para entender dónde tiene que quedar cada pie. La mirada va al final del obstáculo, no a los pies.',
@@ -133,12 +287,23 @@ export const tutorials: readonly Tutorial[] = [
     ],
     disciplineIds: ['aggressive'],
     videoIds: ['soul-grind-lino', 'soul-grind-roex'],
+    articleIds: ['como-elegir-bota', 'errores-comunes'],
   },
   {
     id: 'saltos',
     name: 'Saltos',
     level: 'avanzado',
     summary: 'Despegar y, sobre todo, aterrizar sin lesionarse.',
+    goals: [
+      'Despegar con los dos pies de forma coordinada.',
+      'Aterrizar absorbiendo el impacto con las piernas.',
+      'Subir la altura de manera progresiva y segura.',
+    ],
+    prerequisites: [
+      'Cómo caer entrenado.',
+      'Postura estable a velocidad media.',
+      'Casco y protecciones completas.',
+    ],
     explanation: [
       'Un salto en patines tiene cuatro fases: aproximación, despegue, vuelo y aterrizaje. La mayoría de los patinadores entrena las tres primeras y descuida la cuarta, que es la que causa las lesiones.',
       'El despegue se hace con los patines paralelos y una extensión rápida de ambas piernas, acompañando con los brazos. En el aire las rodillas se recogen hacia el pecho para ganar altura efectiva.',
@@ -152,12 +317,23 @@ export const tutorials: readonly Tutorial[] = [
     ],
     disciplineIds: ['jump', 'aggressive', 'freeskate'],
     videoIds: ['saltar-mas-alto', 'salto-progresion', 'saltos-lista-trucos'],
+    articleIds: ['como-elegir-bota', 'errores-comunes'],
   },
   {
     id: 'escaleras',
     name: 'Escaleras',
     level: 'intermedio',
     summary: 'Bajar escaleras escalón a escalón con control.',
+    goals: [
+      'Bajar tramos cortos con ritmo constante.',
+      'Absorber los impactos con las rodillas.',
+      'Preparar la variante de espaldas.',
+    ],
+    prerequisites: [
+      'Postura básica y freno en T resueltos.',
+      'Cómo caer entrenado.',
+      'Protecciones completas.',
+    ],
     explanation: [
       'Bajar escaleras en patines se aprende escalón a escalón, no saltando. Los patines van en paralelo, perpendiculares al borde, y el peso queda atrás para que las ruedas delanteras no se enganchen.',
       'El ritmo importa más que la velocidad: bajar con pasos cortos y constantes es más seguro que frenar en cada escalón. Las rodillas trabajan como amortiguadores en cada impacto.',
@@ -171,5 +347,6 @@ export const tutorials: readonly Tutorial[] = [
     ],
     disciplineIds: ['freeskate'],
     videoIds: ['escaleras-roex', 'escaleras-proyecto', 'escaleras-espaldas-roex'],
+    articleIds: ['como-elegir-bota', 'errores-comunes'],
   },
 ];

@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import { footerNav, routes } from '@/config/navigation';
-import { getMessages } from '@/i18n';
+import { getRequestMessages } from '@/i18n/server';
 import { Logo } from '@/components/ui/Logo';
 
-export function Footer() {
-  const { footer, nav } = getMessages();
+export async function Footer() {
+  const { footer, nav } = await getRequestMessages();
 
   return (
     <footer className="border-t border-line/60 px-6 py-12">

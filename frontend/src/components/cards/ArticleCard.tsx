@@ -2,15 +2,15 @@ import Link from 'next/link';
 import { Badge } from '@/components/ui/Badge';
 import { Card } from '@/components/ui/Card';
 import { routes } from '@/config/navigation';
-import { getMessages } from '@/i18n';
+import { getRequestMessages } from '@/i18n/server';
 import type { Article } from '@/types';
 
 interface ArticleCardProps {
   article: Article;
 }
 
-export function ArticleCard({ article }: ArticleCardProps) {
-  const { common } = getMessages();
+export async function ArticleCard({ article }: ArticleCardProps) {
+  const { common } = await getRequestMessages();
 
   return (
     <Link href={routes.article(article.id)} className="block h-full">

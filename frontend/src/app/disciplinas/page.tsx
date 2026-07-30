@@ -4,19 +4,21 @@ import { PageHeader } from '@/components/ui/PageHeader';
 import { Section } from '@/components/ui/Section';
 import { routes } from '@/config/navigation';
 import { getMessages } from '@/i18n';
+import { getRequestMessages } from '@/i18n/server';
 import { buildPageMetadata } from '@/lib/metadata';
 import { getDisciplines } from '@/services';
 
-const { disciplines: messages, nav } = getMessages();
-
 export const metadata = buildPageMetadata({
-  title: messages.pageTitle,
-  description: messages.pageDescription,
+  title: getMessages().disciplines.pageTitle,
+  description: getMessages().disciplines.pageDescription,
   path: routes.disciplines,
 });
 
 export default async function DisciplinesPage() {
-  const disciplines = await getDisciplines();
+  const [disciplines, { disciplines: messages, nav }] = await Promise.all([
+    getDisciplines(),
+    getRequestMessages(),
+  ]);
 
   return (
     <>

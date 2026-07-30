@@ -3,15 +3,20 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { primaryNav, routes } from '@/config/navigation';
-import { getMessages } from '@/i18n';
-import { Button } from '@/components/ui/Button';
+import { LanguageSelector } from '@/components/layout/LanguageSelector';
 import { Logo } from '@/components/ui/Logo';
-import { SearchBar } from '@/components/ui/SearchBar';
 import { CloseIcon, MenuIcon } from '@/components/ui/icons';
+import type { Locale } from '@/i18n/config';
+import type { Messages } from '@/i18n';
 
-export function Navbar() {
+interface NavbarProps {
+  locale: Locale;
+  nav: Messages['nav'];
+  common: Messages['common'];
+}
+
+export function Navbar({ locale, nav, common }: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { common, nav } = getMessages();
 
   return (
     <header className="sticky top-0 z-50 border-b border-line/60 bg-night/80 backdrop-blur-xl">
@@ -31,13 +36,12 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="ml-auto hidden items-center gap-3 md:flex">
-          <SearchBar
-            label={common.searchAriaLabel}
-            placeholder={common.search}
-            className="w-40 xl:w-52"
+        <div className="ml-auto hidden items-center gap-3 lg:flex">
+          <LanguageSelector
+            locale={locale}
+            label={common.language}
+            ariaLabel={common.languageAriaLabel}
           />
-          <Button size="sm">{common.signIn}</Button>
         </div>
 
         <button
@@ -46,15 +50,14 @@ export function Navbar() {
           aria-controls="menu-movil"
           aria-label={menuOpen ? common.closeMenu : common.openMenu}
           onClick={() => setMenuOpen((open) => !open)}
-          className="ml-auto flex size-10 items-center justify-center rounded-full border border-line text-ink-muted transition-colors duration-300 hover:text-brand md:hidden"
+          className="ml-auto flex size-10 items-center justify-center rounded-full border border-line text-ink-muted transition-colors duration-300 hover:text-brand lg:hidden"
         >
           {menuOpen ? <CloseIcon /> : <MenuIcon />}
         </button>
       </nav>
 
       {menuOpen && (
-        <div id="menu-movil" className="border-t border-line/60 px-6 py-6 md:hidden">
-          <SearchBar label={common.searchAriaLabel} placeholder={common.search} className="mb-6" />
+        <div id="menu-movil" className="border-t border-line/60 px-6 py-6 lg:hidden">
           <ul className="space-y-4 text-sm text-ink-muted">
             {primaryNav.map((item) => (
               <li key={item.key}>
@@ -68,7 +71,13 @@ export function Navbar() {
               </li>
             ))}
           </ul>
-          <Button className="mt-6 w-full">{common.signIn}</Button>
+          <div className="mt-6">
+            <LanguageSelector
+              locale={locale}
+              label={common.language}
+              ariaLabel={common.languageAriaLabel}
+            />
+          </div>
         </div>
       )}
     </header>
