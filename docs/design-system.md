@@ -45,7 +45,7 @@ El blanco puro no se usa como color predominante: el texto principal es `ink`.
 | `Logo`           | Server | Marca ProRoller.                                                                                                      |
 | `icons.tsx`      | Server | Iconos SVG propios.                                                                                                   |
 
-Las tarjetas de dominio (`InfoCard`, `DisciplineCard`, `ArticleCard`, `VideoCard`, `ResultCard`, `BrandCard`, `ModelCard`, `TutorialCard`, `NewsCard`, `DistributorCard`) viven en `components/cards/` y se construyen sobre los componentes anteriores.
+Las tarjetas de dominio (`InfoCard`, `DisciplineCard`, `ArticleCard`, `VideoCard`, `ResultCard`, `BrandCard`, `ModelCard`, `TutorialCard`, `NewsCard`, `StoreCard`, `GearCard`, `SpotCard`, `RouteCard`, `AcademyCard`, `EventCard`, `PlanCard`) viven en `components/cards/` y se construyen sobre los componentes anteriores.
 
 Los componentes de contenido editorial son `PageHeader`, `Breadcrumbs`, `Prose`, `SpecList`, `BulletList`, `Seal` y `YouTubeEmbed`.
 
@@ -55,3 +55,14 @@ Los componentes de contenido editorial son `PageHeader`, `Breadcrumbs`, `Prose`,
 - Espaciado generoso: secciones con `py-24`/`py-32` y rejillas con `gap-6`.
 - Transiciones suaves (`duration-300`/`duration-500`) y respeto por `prefers-reduced-motion`.
 - Sin textos literales: toda la copia llega desde `i18n`.
+
+## Avisos editoriales
+
+| Componente          | Cuándo se usa                                                                        |
+| ------------------- | ------------------------------------------------------------------------------------ |
+| `DevelopmentNotice` | Secciones cuya información real todavía se está levantando (spots, rutas, academias) |
+| `ImagePlaceholder`  | Cualquier ficha sin imagen con licencia aprobada                                     |
+| `HelmetNotice`      | Antes de cualquier ficha de patines                                                  |
+| `StoreLookup`       | Cierre de fichas de patines y protecciones, con el sello del distribuidor            |
+| `DisciplineFitList` | Uso recomendado por disciplina de un modelo (criterio editorial, no puntuación)      |
+| `LanguageSelector`  | Cambio de idioma de la interfaz en la barra superior                                 |

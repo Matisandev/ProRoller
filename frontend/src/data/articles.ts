@@ -9,7 +9,7 @@ export const articles: readonly Article[] = [
     category: 'Guía',
     readingMinutes: 8,
     publishedAt: '2026-07-01',
-    disciplineIds: ['freeskate', 'slalom', 'quads'],
+    disciplineIds: ['freeskate', 'slalom', 'speed'],
     body: [
       {
         heading: 'Primero define qué vas a patinar',
@@ -214,7 +214,7 @@ export const articles: readonly Article[] = [
     category: 'Técnica',
     readingMinutes: 6,
     publishedAt: '2026-07-24',
-    disciplineIds: ['freeskate', 'slalom', 'quads', 'hielo'],
+    disciplineIds: ['freeskate', 'slalom', 'downhill'],
     body: [
       {
         heading: 'Postura y mirada',
@@ -235,6 +235,207 @@ export const articles: readonly Article[] = [
         paragraphs: [
           'Otros errores frecuentes: patinar sin casco, apretar los cordones de forma desigual, no revisar tornillos ni rodamientos, y elegir un patín inadecuado para lo que se quiere hacer.',
           'A eso se suma practicar en el lugar equivocado. Superficie lisa, sin arena, sin tráfico y con espacio para caerse es lo que acelera el aprendizaje en los primeros meses.',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'por-que-usar-casco',
+    title: '¿Por qué utilizar casco?',
+    excerpt:
+      'La única lesión que no se rehabilita es la de la cabeza. Por eso en ProRoller el casco no se discute.',
+    category: 'Seguridad',
+    readingMinutes: 5,
+    publishedAt: '2026-07-20',
+    disciplineIds: ['freeskate', 'slalom', 'speed', 'jump', 'slide', 'aggressive', 'downhill'],
+    body: [
+      {
+        heading: 'El riesgo no depende de tu nivel',
+        paragraphs: [
+          'Casi todas las caídas en patines son intrascendentes: una rodilla raspada, un golpe en la palma, un susto. El problema es que la excepción es muy grave. Un golpe en la cabeza puede tener consecuencias permanentes, y no requiere ir rápido: basta perder el equilibrio hacia atrás sobre cemento.',
+          'Por eso el criterio editorial de ProRoller es simple: el casco se usa siempre, en cualquier disciplina y en cualquier nivel. La seguridad va antes que el rendimiento.',
+        ],
+      },
+      {
+        heading: 'Qué hace un casco realmente',
+        paragraphs: [
+          'Un casco no evita el golpe, distribuye la energía del impacto y aumenta el tiempo en que esa energía se disipa. Esa diferencia de milisegundos es la que reduce el daño.',
+          'Un casco certificado cumple ensayos definidos por una norma. En patinaje se usan habitualmente cascos con norma europea EN 1078, y en el mundo del skate también la norma estadounidense ASTM F1492.',
+        ],
+      },
+      {
+        heading: 'La costumbre se construye desde el primer día',
+        paragraphs: [
+          'Quien aprende con casco desde la primera sesión no lo cuestiona después. Quien lo deja para "cuando patine más rápido" normalmente nunca lo incorpora.',
+          'Si vas a comprar tus primeros patines, reserva parte del presupuesto para el casco. Es la compra que menos se nota y la que más importa.',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'elegir-casco',
+    title: 'Cómo elegir un casco',
+    excerpt:
+      'Talla, certificación, ajuste y tipo de casco: cuatro criterios objetivos antes de mirar el diseño.',
+    category: 'Seguridad',
+    readingMinutes: 6,
+    publishedAt: '2026-07-19',
+    disciplineIds: ['freeskate', 'aggressive', 'downhill'],
+    body: [
+      {
+        heading: 'Certificación primero',
+        paragraphs: [
+          'Antes que la marca, revisa la etiqueta interior. Los cascos para patinaje suelen declarar la norma europea EN 1078; los cascos de skate añaden con frecuencia la norma ASTM F1492, que contempla impactos múltiples.',
+          'Un casco sin ninguna norma declarada no entrega garantías de ensayo, por barato que sea.',
+        ],
+      },
+      {
+        heading: 'Ajuste: la talla no es un detalle',
+        paragraphs: [
+          'Mide el perímetro de tu cabeza y compáralo con la tabla del fabricante. El casco debe quedar firme sin apretar: si al mover la cabeza el casco se desplaza, está grande.',
+          'La posición correcta es horizontal, cubriendo la frente. Un casco echado hacia atrás deja expuesta justamente la zona que más se golpea al caer de espaldas.',
+        ],
+      },
+      {
+        heading: 'Tipo de casco según lo que patines',
+        paragraphs: [
+          'Para ciudad y aprendizaje, un casco de skate con cobertura trasera es una buena elección. Para descensos rápidos existen cascos integrales, que protegen también la cara.',
+          'Los cascos con ventilación amplia son más cómodos en verano; los de carcasa dura y menos ventilación resisten mejor los golpes repetidos del skatepark.',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'elegir-munequeras',
+    title: 'Cómo elegir muñequeras',
+    excerpt:
+      'La lesión más frecuente al empezar es de muñeca. Una muñequera con férula cambia por completo ese escenario.',
+    category: 'Seguridad',
+    readingMinutes: 5,
+    publishedAt: '2026-07-18',
+    disciplineIds: ['freeskate', 'slalom'],
+    body: [
+      {
+        heading: 'Por qué son la protección más rentable',
+        paragraphs: [
+          'Al caer, el reflejo natural es estirar la mano. Todo el peso del cuerpo llega a la muñeca en una posición desfavorable, y de ahí vienen los esguinces y fracturas más comunes de los primeros meses.',
+          'Una muñequera con férula rígida limita la extensión de la articulación y ofrece una superficie que desliza en vez de frenar en seco.',
+        ],
+      },
+      {
+        heading: 'Qué mirar al comprar',
+        paragraphs: [
+          'Busca férula en la palma, sujeción firme con velcro y una talla que no permita que la protección gire en el brazo. Las protecciones para deportes de ruedas suelen declarar la norma europea EN 14120.',
+          'Deben permitirte cerrar el puño y flectar los dedos. Si te obligan a mantener la mano abierta, vas a terminar sacándotelas.',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'elegir-rodilleras',
+    title: 'Cómo elegir rodilleras',
+    excerpt:
+      'La rodillera es la que permite entrenar la caída hacia adelante, que es la caída segura.',
+    category: 'Seguridad',
+    readingMinutes: 5,
+    publishedAt: '2026-07-17',
+    disciplineIds: ['freeskate', 'aggressive', 'jump'],
+    body: [
+      {
+        heading: 'Dos familias distintas',
+        paragraphs: [
+          'Las rodilleras elásticas con almohadilla son livianas y cómodas para aprender en la calle. Las rodilleras de carcasa dura, típicas del skatepark, permiten arrodillarse y deslizar sobre el plástico.',
+          'Si tu objetivo es patinar rampas, la carcasa dura es la opción indicada; para ciudad y tutoriales básicos, una rodillera elástica bien ajustada cumple.',
+        ],
+      },
+      {
+        heading: 'Ajuste y mantenimiento',
+        paragraphs: [
+          'La rodillera debe quedar centrada sobre la rótula y sostenerse al flectar la rodilla. Si baja al patinar, la talla o la sujeción no son correctas.',
+          'Revisa periódicamente costuras, velcros y carcasa. Las protecciones para deportes de ruedas suelen declarar la norma europea EN 14120.',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'elegir-coderas',
+    title: 'Cómo elegir coderas',
+    excerpt:
+      'Menos comentadas que las rodilleras, pero clave en las caídas laterales y en el skatepark.',
+    category: 'Seguridad',
+    readingMinutes: 4,
+    publishedAt: '2026-07-16',
+    disciplineIds: ['freeskate', 'aggressive'],
+    body: [
+      {
+        heading: 'Cuándo se agradecen',
+        paragraphs: [
+          'En caídas laterales y hacia atrás, el codo suele ser el segundo punto de contacto después de la mano. Es una zona con poco tejido blando, así que el golpe llega directo al hueso.',
+          'En skatepark y en aprendizaje de derrapes son casi tan importantes como las rodilleras.',
+        ],
+      },
+      {
+        heading: 'Qué revisar',
+        paragraphs: [
+          'Sujeción que no gire alrededor del brazo, almohadilla que cubra la punta del codo y libertad para estirar y flectar sin que la protección se salga.',
+          'Igual que el resto del equipo de protección para deportes de ruedas, es habitual encontrar la referencia a la norma europea EN 14120.',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'elegir-shorts',
+    title: 'Cómo elegir shorts de protección',
+    excerpt: 'Cadera y coxis: los golpes que menos se ven y más tiempo dejan fuera.',
+    category: 'Seguridad',
+    readingMinutes: 4,
+    publishedAt: '2026-07-15',
+    disciplineIds: ['freeskate', 'slide', 'aggressive'],
+    body: [
+      {
+        heading: 'Para qué sirven',
+        paragraphs: [
+          'Los shorts de protección incorporan almohadillas en cadera, glúteos y coxis. Son especialmente útiles cuando se entrenan derrapes y caídas hacia atrás, donde el impacto llega a zonas que ninguna otra protección cubre.',
+          'No evitan la caída, reducen el golpe y permiten seguir entrenando al día siguiente.',
+        ],
+      },
+      {
+        heading: 'Qué mirar',
+        paragraphs: [
+          'Prefiere modelos con almohadillas fijas en su posición y tela que no se desplace al moverte. Deben poder usarse bajo la ropa habitual sin limitar la flexión de cadera.',
+          'Revisa que las almohadillas sean lavables o extraíbles: es la prenda que más transpira de todo el equipo.',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'reemplazar-proteccion',
+    title: 'Cuándo reemplazar una protección',
+    excerpt:
+      'Una protección golpeada o desgastada da una falsa sensación de seguridad. Cómo saber cuándo jubilarla.',
+    category: 'Seguridad',
+    readingMinutes: 5,
+    publishedAt: '2026-07-14',
+    disciplineIds: ['freeskate', 'aggressive', 'downhill'],
+    body: [
+      {
+        heading: 'El casco después de un golpe fuerte',
+        paragraphs: [
+          'La recomendación general de los fabricantes es reemplazar el casco después de un impacto importante, incluso si por fuera se ve bien: la espuma interior absorbe la energía deformándose y esa capacidad no se recupera.',
+          'Revisa además grietas en la carcasa, espuma hundida y correas o hebillas deterioradas. Muchos fabricantes indican una vida útil recomendada en años.',
+        ],
+      },
+      {
+        heading: 'Rodilleras, coderas y muñequeras',
+        paragraphs: [
+          'Cambia una protección cuando la carcasa esté rajada, la almohadilla comprimida de forma permanente, el velcro no sujete o las costuras estén abiertas.',
+          'Un caso especial son las férulas de las muñequeras: si están dobladas o partidas, la protección dejó de cumplir su función.',
+        ],
+      },
+      {
+        heading: 'Criterio simple',
+        paragraphs: [
+          'Si dudas de si una protección todavía protege, ya tienes la respuesta. Es la parte más barata del equipo y la que evita las lesiones más caras.',
         ],
       },
     ],

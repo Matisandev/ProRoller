@@ -22,7 +22,12 @@ export const disciplines: readonly Discipline[] = [
       'Leer la calle y anticipar obstáculos, autos y peatones.',
       'Construir la base técnica que después usarás en cualquier otra disciplina.',
     ],
-    recommendedLevel: 'principiante',
+    whatToLearnFirst: [
+      'Postura básica: rodillas flectadas, peso al centro y mirada al frente.',
+      'Cómo caer: aprender a repartir el golpe antes de subir la velocidad.',
+      'Freno en cuña y freno en T, en ese orden.',
+      'Giro natural en las dos direcciones, sin cruzar los pies.',
+    ],
     equipment: [
       'Patines freeskate con bota reforzada y frame corto (típicamente 3x80 mm o 4x80 mm).',
       'Ruedas duras (85A o más) porque los derrapes las desgastan rápido.',
@@ -71,7 +76,12 @@ export const disciplines: readonly Discipline[] = [
       'Encadenar secuencias completas con ritmo y musicalidad.',
       'Ganar sensibilidad para corregir la postura mientras patinas.',
     ],
-    recommendedLevel: 'intermedio',
+    whatToLearnFirst: [
+      'Equilibrio sobre un solo patín, primero detenido y después en movimiento.',
+      'Cruzados alrededor del cono, la línea de 80 cm como referencia.',
+      'Serpiente en paralelo para soltar los tobillos.',
+      'Giros de punta para cambiar de dirección sin salir de la línea.',
+    ],
     equipment: [
       'Patines de bota baja y flexible en el tobillo, con frame plano de 4x80 mm.',
       'Ruedas de 80 mm y dureza media-alta para girar sin perder agarre.',
@@ -119,7 +129,12 @@ export const disciplines: readonly Discipline[] = [
       'Dominar las curvas con cruzados profundos y sin perder ritmo.',
       'Trabajar la resistencia y la fuerza específica de piernas.',
     ],
-    recommendedLevel: 'avanzado',
+    whatToLearnFirst: [
+      'Postura baja y estable, con el tronco adelantado y la mirada lejos.',
+      'Zancada completa: empujar hacia el lado y recuperar bajo el cuerpo.',
+      'Cruzados en curva a baja velocidad antes de exigir el ritmo.',
+      'Frenados de seguridad, porque el patín de velocidad no trae taco.',
+    ],
     equipment: [
       'Patines de velocidad: bota baja de carbono, sin soporte de tobillo.',
       'Frames largos de aluminio, típicamente 3x110 mm o 4x110 mm.',
@@ -166,7 +181,12 @@ export const disciplines: readonly Discipline[] = [
       'Aterrizar con las rodillas flectadas y el peso al centro.',
       'Desarrollar potencia de piernas y estabilidad de tronco.',
     ],
-    recommendedLevel: 'avanzado',
+    whatToLearnFirst: [
+      'Aterrizaje y caída controlada, antes que la altura.',
+      'Salto a dos pies sin obstáculo, buscando extensión completa.',
+      'Aproximación con velocidad constante y patines paralelos.',
+      'Recogida de rodillas en el aire, primero a poca altura.',
+    ],
     equipment: [
       'Patines con bota rígida y buen soporte de tobillo para absorber el impacto.',
       'Frames resistentes; en salto se recomienda revisar tornillos con frecuencia.',
@@ -214,7 +234,12 @@ export const disciplines: readonly Discipline[] = [
       'Ampliar el repertorio de derrapes según el espacio disponible.',
       'Reducir el desgaste irregular de las ruedas con una técnica correcta.',
     ],
-    recommendedLevel: 'intermedio',
+    whatToLearnFirst: [
+      'Freno en T sólido: sin él el derrape llega antes de tiempo.',
+      'Perder agarre a propósito en plano y a baja velocidad.',
+      'Powerslide desde poca velocidad, con el pie adelantado estirado.',
+      'Cómo caer hacia el lado cuando el derrape se pasa de largo.',
+    ],
     equipment: [
       'Ruedas duras (85A o más); las blandas se destruyen derrapando.',
       'Frame corto y bota reforzada, típica del patín freeskate.',
@@ -261,7 +286,12 @@ export const disciplines: readonly Discipline[] = [
       'Leer un skatepark y planificar una línea completa.',
       'Aprender a caer, porque en esta disciplina se cae mucho.',
     ],
-    recommendedLevel: 'avanzado',
+    whatToLearnFirst: [
+      'Caer y rodar, porque en el skatepark la caída es parte del aprendizaje.',
+      'Drop in en una rampa baja hasta que deje de dar miedo.',
+      'Salto y aterrizaje limpios sobre plano.',
+      'Soul grind en un cajón bajo antes de subir a una baranda.',
+    ],
     equipment: [
       'Patines aggressive con bota rígida, soul plate y grindblock.',
       'Frames con espacio central (H-block) para deslizar sobre barandas.',
@@ -291,95 +321,57 @@ export const disciplines: readonly Discipline[] = [
     articleIds: ['como-elegir-bota', 'errores-comunes'],
   },
   {
-    id: 'quads',
-    name: 'Quads',
-    description: 'Patines de cuatro ruedas: rink, jam y estilo clásico.',
+    id: 'downhill',
+    name: 'Downhill',
+    description: 'Descenso de pendientes largas con control de velocidad.',
     summary:
-      'Los quads son los patines de cuatro ruedas en dos ejes. Sostienen varias disciplinas propias: patín artístico, jam y roller dance, rink hockey, derby y patinaje recreativo.',
+      'El downhill consiste en bajar pendientes de asfalto a alta velocidad. Es la disciplina donde la técnica de frenado deja de ser un complemento y pasa a ser el requisito principal: sin frenadas confiables, no hay bajada posible.',
     history: [
-      'El patín de cuatro ruedas es el más antiguo de todos: su diseño de dos ejes se consolidó en el siglo diecinueve y dominó el patinaje durante más de cien años, en pistas cubiertas y salones de baile.',
-      'De ahí nacieron disciplinas completas: el patín artístico con figuras y saltos, el rink hockey, el roller derby y el jam skating ligado a la música y al baile.',
-      'La llegada del patín en línea desplazó a los quads en los años noventa, pero nunca los reemplazó. En la última década volvieron con fuerza, sobre todo en patinaje artístico, danza y uso recreativo.',
+      'El descenso en patines nació de la práctica urbana: cualquier patinador que baja un cerro descubre rápido que el taco no alcanza para controlar la velocidad y que necesita técnicas específicas de frenado y trazado.',
+      'Con el tiempo el descenso se organizó como especialidad propia, con recorridos cerrados al tránsito, cronometraje y equipamiento reforzado. World Skate reconoce el downhill dentro de sus disciplinas de patinaje.',
+      'El equipo evolucionó hacia frames largos, ruedas grandes y duras y protecciones de nivel alto, incluyendo cascos integrales y guantes reforzados en las competencias más rápidas.',
     ],
     goals: [
-      'Aprovechar la estabilidad lateral que dan dos ejes de ruedas.',
-      'Aprender figuras, giros y saltos propios del patín artístico.',
-      'Desarrollar musicalidad y expresión en danza y jam.',
-      'Entender un equipo distinto: placa, cojinetes y freno delantero.',
+      'Controlar la velocidad en pendiente con más de una técnica de frenado.',
+      'Trazar curvas con el peso bajo y estable, sin bloquear las piernas.',
+      'Leer la superficie, la pendiente y el tránsito antes de bajar.',
+      'Aumentar el margen de seguridad, no la velocidad máxima.',
     ],
-    recommendedLevel: 'principiante',
+    whatToLearnFirst: [
+      'Powerslide confiable en plano y en bajadas suaves.',
+      'Freno en T y freno en cuña para bajar velocidad de forma progresiva.',
+      'Postura baja y compacta, con el peso repartido entre los dos patines.',
+      'Curvas amplias para disipar velocidad sin frenar en seco.',
+    ],
     equipment: [
-      'Patines quad con bota de cuero o sintética y placa atornillada.',
-      'Cojinetes de goma ajustables, que definen cuánto gira el patín.',
-      'Ruedas anchas: más blandas para exterior, más duras para pista.',
-      'Freno delantero (toe stop) y casco.',
+      'Patines con bota rígida y buen soporte de tobillo.',
+      'Frames largos y ruedas duras, resistentes al desgaste de los derrapes.',
+      'Casco siempre; en descensos rápidos, casco integral y guantes reforzados.',
+      'Rodilleras, coderas y muñequeras: en pendiente la caída llega con más energía.',
     ],
     techniques: [
       {
-        name: 'Postura y equilibrio',
+        name: 'Posición de descenso',
         description:
-          'Peso repartido entre los cuatro puntos de apoyo, con las rodillas siempre flectadas.',
+          'Rodillas muy flectadas, tronco adelantado y patines estables para reducir el balanceo.',
       },
       {
-        name: 'Toe stop',
-        description: 'Frenado con el taco delantero, apoyando la punta del patín en el suelo.',
-      },
-      {
-        name: 'Cruzados',
-        description: 'Cruce del pie exterior en curva, base tanto del artístico como del rink.',
-      },
-      {
-        name: 'Saltos artísticos',
-        description: 'Salto de vals, salchow y axel: rotaciones con despegue y caída controlada.',
-      },
-    ],
-    videoIds: ['quads-aprender-patinar', 'quads-artistico-saltos', 'quads-roll-line'],
-    articleIds: ['primeros-patines', 'errores-comunes'],
-  },
-  {
-    id: 'hielo',
-    name: 'Patinaje sobre hielo',
-    description: 'Deslizamiento sobre hielo y transferencia de técnica al asfalto.',
-    summary:
-      'El patinaje sobre hielo cambia las ruedas por una cuchilla. La sensación es distinta, pero la base técnica —filos, postura y equilibrio— se transfiere directamente al patín de ruedas.',
-    history: [
-      'Patinar sobre hielo es una práctica milenaria: se han encontrado patines de hueso de más de tres mil años de antigüedad en el norte de Europa. Con la cuchilla de metal, en los siglos siguientes, dejó de ser transporte y pasó a ser deporte.',
-      'En el siglo diecinueve se separaron las dos grandes ramas: el patinaje artístico, con figuras y saltos, y el patinaje de velocidad, con carreras en óvalo. Ambas están en los Juegos Olímpicos de Invierno desde sus primeras ediciones.',
-      'En Chile la práctica depende de pistas artificiales, por lo que muchos patinadores llegan al hielo desde las ruedas y no al revés. La transferencia entre ambos mundos es alta: varios patinadores de velocidad han competido en las dos superficies.',
-    ],
-    goals: [
-      'Entender el trabajo de filos, interno y externo, sobre cada pie.',
-      'Deslizar con eficiencia sin depender del empuje constante.',
-      'Aprender frenados propios del hielo, como el snowplow.',
-      'Aprovechar el hielo para pulir postura y equilibrio de forma más exigente.',
-    ],
-    recommendedLevel: 'principiante',
-    equipment: [
-      'Patines de hielo artísticos, de velocidad o de hockey según el objetivo.',
-      'Cuchillas afiladas y protectores para caminar fuera de la pista.',
-      'Calcetines delgados y ropa que permita moverse pero abrigue.',
-      'Casco recomendado, y guantes siempre: las caídas son sobre hielo duro.',
-    ],
-    techniques: [
-      {
-        name: 'Marcha básica',
-        description: 'Primeros desplazamientos con empujes cortos y peso adelantado.',
-      },
-      {
-        name: 'Filos',
+        name: 'Powerslide en pendiente',
         description:
-          'Inclinar el tobillo para deslizar sobre el filo interno o externo y trazar curvas.',
+          'Derrape en paralelo para cortar la velocidad cuando el freno progresivo no alcanza.',
       },
       {
-        name: 'Snowplow',
-        description: 'Frenado abriendo la punta de los pies hacia dentro y raspando el hielo.',
+        name: 'Curvas de disipación',
+        description:
+          'Encadenar curvas amplias de lado a lado para controlar la velocidad sin frenar de golpe.',
       },
       {
-        name: 'Cruzados sobre hielo',
-        description: 'Cruce del pie exterior en curva, muy parecido al cruzado en ruedas.',
+        name: 'Lectura de la bajada',
+        description:
+          'Revisar la pendiente completa antes de bajar: superficie, arena, cruces y salidas de escape.',
       },
     ],
-    videoIds: ['hielo-principiantes', 'hielo-leccion-1', 'hielo-guia-saltos'],
-    articleIds: ['errores-comunes', 'primeros-patines'],
+    videoIds: ['downhill-principiantes', 'downhill-control-velocidad', 'downhill-frenado'],
+    articleIds: ['errores-comunes', 'como-elegir-ruedas'],
   },
 ];

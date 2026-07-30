@@ -4,19 +4,21 @@ import { PageHeader } from '@/components/ui/PageHeader';
 import { Section } from '@/components/ui/Section';
 import { routes } from '@/config/navigation';
 import { getMessages } from '@/i18n';
+import { getRequestMessages } from '@/i18n/server';
 import { buildPageMetadata } from '@/lib/metadata';
 import { getTutorials } from '@/services';
 
-const { tutorials: messages, nav } = getMessages();
-
 export const metadata = buildPageMetadata({
-  title: messages.pageTitle,
-  description: messages.pageDescription,
+  title: getMessages().tutorials.pageTitle,
+  description: getMessages().tutorials.pageDescription,
   path: routes.tutorials,
 });
 
 export default async function TutorialsPage() {
-  const tutorials = await getTutorials();
+  const [tutorials, { tutorials: messages, nav }] = await Promise.all([
+    getTutorials(),
+    getRequestMessages(),
+  ]);
 
   return (
     <>

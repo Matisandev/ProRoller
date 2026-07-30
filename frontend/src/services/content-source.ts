@@ -1,12 +1,19 @@
 import type {
+  AboutContent,
+  Academy,
+  AppPlan,
   Article,
   Brand,
   CompetitionResult,
   Discipline,
-  Distributor,
   NewsItem,
+  ProtectiveGear,
   SkateModel,
+  SkateRoute,
+  Spot,
+  Store,
   Tutorial,
+  UpcomingEvent,
   Video,
 } from '@/types';
 
@@ -24,6 +31,10 @@ export interface ContentSource {
   getSkateModels(): Promise<readonly SkateModel[]>;
   getSkateModel(id: string): Promise<SkateModel | null>;
 
+  getProtectiveGear(): Promise<readonly ProtectiveGear[]>;
+  getProtectiveGearItem(id: string): Promise<ProtectiveGear | null>;
+  getSafetyGuides(): Promise<readonly Article[]>;
+
   getTutorials(): Promise<readonly Tutorial[]>;
   getTutorial(id: string): Promise<Tutorial | null>;
 
@@ -34,6 +45,17 @@ export interface ContentSource {
   getVideosByIds(ids: readonly string[]): Promise<readonly Video[]>;
 
   getNews(): Promise<readonly NewsItem[]>;
-  getFeaturedResults(): Promise<readonly CompetitionResult[]>;
-  getRecommendedDistributors(): Promise<readonly Distributor[]>;
+  getResults(): Promise<readonly CompetitionResult[]>;
+  getUpcomingEvents(): Promise<readonly UpcomingEvent[]>;
+
+  getStores(): Promise<readonly Store[]>;
+
+  getSpots(): Promise<readonly Spot[]>;
+  getSpot(id: string): Promise<Spot | null>;
+  getSkateRoutes(): Promise<readonly SkateRoute[]>;
+  getSkateRoute(id: string): Promise<SkateRoute | null>;
+  getAcademies(): Promise<readonly Academy[]>;
+
+  getAppPlans(): Promise<readonly AppPlan[]>;
+  getAbout(): Promise<AboutContent>;
 }

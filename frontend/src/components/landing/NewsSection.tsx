@@ -3,12 +3,14 @@ import { Button } from '@/components/ui/Button';
 import { CardGrid } from '@/components/ui/CardGrid';
 import { Section } from '@/components/ui/Section';
 import { routes, sectionIds } from '@/config/navigation';
-import { getMessages } from '@/i18n';
+import { getRequestMessages } from '@/i18n/server';
 import { getLatestNews } from '@/services';
 
 export async function NewsSection() {
-  const { news: messages, common } = getMessages();
-  const items = await getLatestNews();
+  const [items, { news: messages, common }] = await Promise.all([
+    getLatestNews(3),
+    getRequestMessages(),
+  ]);
 
   return (
     <Section

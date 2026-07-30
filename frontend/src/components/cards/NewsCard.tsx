@@ -1,14 +1,15 @@
 import { Card } from '@/components/ui/Card';
 import { ArrowRightIcon } from '@/components/ui/icons';
-import { getMessages, interpolate } from '@/i18n';
+import { interpolate } from '@/i18n';
+import { getRequestMessages } from '@/i18n/server';
 import type { NewsItem } from '@/types';
 
 interface NewsCardProps {
   item: NewsItem;
 }
 
-export function NewsCard({ item }: NewsCardProps) {
-  const { news: messages, common } = getMessages();
+export async function NewsCard({ item }: NewsCardProps) {
+  const { news: messages, common } = await getRequestMessages();
 
   return (
     <Card interactive className="flex h-full flex-col p-6">

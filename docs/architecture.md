@@ -24,16 +24,26 @@ Capas, de fuera hacia dentro:
 
 ### Rutas
 
-| Ruta                  | Contenido                                |
-| --------------------- | ---------------------------------------- |
-| `/`                   | Portada                                  |
-| `/disciplinas[/slug]` | Índice y ficha de disciplina             |
-| `/marcas[/slug]`      | Índice y ficha de marca                  |
-| `/modelos[/slug]`     | Índice y ficha de modelo                 |
-| `/tutoriales[/slug]`  | Índice y tutorial de técnica             |
-| `/articulos[/slug]`   | Índice y artículo                        |
-| `/noticias`           | Resúmenes con enlace a la fuente oficial |
-| `/distribuidores`     | Directorio editorial de distribuidores   |
+| Ruta                              | Contenido                                               |
+| --------------------------------- | ------------------------------------------------------- |
+| `/`                               | Portada                                                 |
+| `/disciplinas[/slug]`             | Índice y ficha de disciplina                            |
+| `/tutoriales[/slug]`              | Índice y tutorial de técnica                            |
+| `/articulos[/slug]`               | Índice y artículo                                       |
+| `/donde-comprar`                  | Patines, seguridad, marcas y tiendas                    |
+| `/donde-comprar/patines[/slug]`   | Índice y ficha de modelo                                |
+| `/donde-comprar/seguridad[/slug]` | Guías de seguridad y fichas de protecciones             |
+| `/donde-comprar/marcas[/slug]`    | Índice y ficha de marca                                 |
+| `/donde-comprar/tiendas`          | Directorio editorial de distribuidores                  |
+| `/donde-patinar`                  | Spots, rutas y academias (datos de ejemplo señalizados) |
+| `/donde-patinar/spots[/slug]`     | Índice y ficha de spot                                  |
+| `/donde-patinar/rutas[/slug]`     | Índice y ficha de ruta                                  |
+| `/donde-patinar/academias`        | Escuelas, clubes y grupos                               |
+| `/noticias`                       | Resúmenes con enlace a la fuente oficial                |
+| `/noticias/resultados`            | Podios oficiales verificables                           |
+| `/noticias/eventos`               | Próximos grandes eventos                                |
+| `/app`                            | Landing de ProRoller App (sin autenticación)            |
+| `/sobre-proroller`                | Proyecto personal, filosofía y transparencia            |
 
 Las rutas de detalle usan `generateStaticParams()` y `generateMetadata()`, y responden `notFound()` cuando el slug no existe. Los identificadores del contenido son los slugs: al pasar a la API REST, la clave sigue siendo la misma.
 
@@ -46,6 +56,8 @@ Las rutas de detalle usan `generateStaticParams()` y `generateMetadata()`, y res
 - `i18n/config.ts` declara los idiomas soportados (`locales`) y el idioma por defecto.
 - `i18n/messages/<locale>.ts` contiene toda la copia de interfaz.
 - `i18n/index.ts` expone `getMessages(locale)` e `interpolate(template, values)`.
+- `i18n/server.ts` resuelve el idioma de la petición desde la cookie `proroller_locale` (`getRequestLocale`, `getRequestMessages`); los Server Components leen la copia desde ahí.
+- `i18n/actions.ts` guarda la cookie con un Server Action y revalida el layout. El selector vive en la barra superior.
 
 Ningún componente escribe texto literal. Añadir un idioma implica crear un diccionario nuevo y registrarlo; la estructura de rutas por idioma (`/[locale]/...`) queda pendiente de autorización y no se implementó en este Sprint.
 

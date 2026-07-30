@@ -5,7 +5,7 @@ import { PageHeader } from '@/components/ui/PageHeader';
 import { Prose } from '@/components/ui/Prose';
 import { Section } from '@/components/ui/Section';
 import { routes } from '@/config/navigation';
-import { getMessages } from '@/i18n';
+import { getRequestMessages } from '@/i18n/server';
 import { buildPageMetadata } from '@/lib/metadata';
 import { getArticle, getArticles, getDisciplines } from '@/services';
 
@@ -35,7 +35,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   const article = await getArticle(slug);
   if (article === null) notFound();
 
-  const { articles: messages, nav, common } = getMessages();
+  const { articles: messages, nav, common } = await getRequestMessages();
   const disciplines = await getDisciplines();
   const related = disciplines.filter((discipline) => article.disciplineIds.includes(discipline.id));
 

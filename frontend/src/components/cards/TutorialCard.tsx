@@ -2,15 +2,15 @@ import Link from 'next/link';
 import { Badge } from '@/components/ui/Badge';
 import { Card } from '@/components/ui/Card';
 import { routes } from '@/config/navigation';
-import { getMessages } from '@/i18n';
+import { getRequestMessages } from '@/i18n/server';
 import type { Tutorial } from '@/types';
 
 interface TutorialCardProps {
   tutorial: Tutorial;
 }
 
-export function TutorialCard({ tutorial }: TutorialCardProps) {
-  const { levels } = getMessages();
+export async function TutorialCard({ tutorial }: TutorialCardProps) {
+  const { levels } = await getRequestMessages();
 
   return (
     <Link href={routes.tutorial(tutorial.id)} className="block h-full">

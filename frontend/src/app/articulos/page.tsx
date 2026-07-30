@@ -4,19 +4,21 @@ import { PageHeader } from '@/components/ui/PageHeader';
 import { Section } from '@/components/ui/Section';
 import { routes } from '@/config/navigation';
 import { getMessages } from '@/i18n';
+import { getRequestMessages } from '@/i18n/server';
 import { buildPageMetadata } from '@/lib/metadata';
 import { getArticles } from '@/services';
 
-const { articles: messages, nav } = getMessages();
-
 export const metadata = buildPageMetadata({
-  title: messages.pageTitle,
-  description: messages.pageDescription,
+  title: getMessages().articles.pageTitle,
+  description: getMessages().articles.pageDescription,
   path: routes.articles,
 });
 
 export default async function ArticlesPage() {
-  const articles = await getArticles();
+  const [articles, { articles: messages, nav }] = await Promise.all([
+    getArticles(),
+    getRequestMessages(),
+  ]);
 
   return (
     <>
