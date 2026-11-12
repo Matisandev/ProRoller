@@ -14,6 +14,8 @@ export const es = {
     close: 'Cerrar',
     loading: 'Cargando',
     skipToContent: 'Saltar al contenido',
+    themeToLight: 'Cambiar a modo claro',
+    themeToDark: 'Cambiar a modo oscuro',
     readingMinutes: 'min de lectura',
     breadcrumbAriaLabel: 'Ruta de navegación',
     seeAll: 'Ver todo',

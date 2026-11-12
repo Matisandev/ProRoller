@@ -41,9 +41,29 @@
   }
 }
 
+/*
+ * Modo claro: mismos tokens que el portafolio (matisandev.cl) y Kastigo.
+ * El modo oscuro es el predeterminado; el botón del encabezado guarda la elección
+ * en localStorage ("theme"), compartido con las otras dos páginas del dominio.
+ */
+html[data-theme='light'] {
+  --color-night: #f5f7fb;
+  --color-carbon: #ffffff;
+  --color-navy: #ffffff;
+  --color-navy-soft: #eef2f8;
+  --color-line: #d5dde8;
+  --color-brand: #00795f;
+  --color-brand-soft: #d9f0ea;
+  --color-ink: #0d1726;
+  --color-ink-muted: #52627a;
+  --color-ink-faint: #6b7a90;
+  color-scheme: light;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
+    color-scheme: dark;
   }
 
   body {

@@ -12,20 +12,14 @@ export const about: AboutContent = {
   },
   author: {
     name: 'Matías Sandoval',
-    city: 'Santiago, Chile',
+    city: 'Chile',
     role: 'Ingeniero informático y patinador',
     bio: [
-      'Soy Matías Sandoval, de Santiago de Chile. Estudié Ingeniería Informática en Duoc UC y trabajo en el mundo de los datos y el desarrollo web. Antes de eso pasé por Pedagogía en Educación Física, que es donde apareció mi interés por enseñar y por el deporte.',
+      'Soy Matías Sandoval. Estudié Ingeniería Informática en Duoc UC y trabajo en el mundo de los datos y el desarrollo web. Antes de eso pasé por Pedagogía en Educación Física, que es donde apareció mi interés por enseñar y por el deporte.',
       'El patinaje inline llegó después y se quedó. ProRoller nace justamente de la unión de esas dos pasiones: la tecnología y el patinaje.',
       'Mi información pública está en mi sitio personal, y desde ahí también se puede seguir lo que hago fuera de ProRoller.',
     ],
-    website: 'https://matisandev.github.io/',
-    photo: {
-      url: 'https://matisandev.github.io/assets/img/profile-img.jpg',
-      alt: 'Fotografía de Matías Sandoval',
-      credit: 'matisandev.github.io',
-      creditUrl: 'https://matisandev.github.io/',
-    },
+    website: 'https://www.matisandev.cl/',
   },
   philosophy: [
     'Creo que la seguridad siempre debe estar antes que el rendimiento.',

@@ -16,6 +16,8 @@ export const pt: Messages = {
     close: 'Fechar',
     loading: 'Carregando',
     skipToContent: 'Ir para o conteúdo',
+    themeToLight: 'Mudar para o modo claro',
+    themeToDark: 'Mudar para o modo escuro',
     readingMinutes: 'min de leitura',
     breadcrumbAriaLabel: 'Trilha de navegação',
     seeAll: 'Ver tudo',

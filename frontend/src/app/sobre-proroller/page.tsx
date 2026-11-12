@@ -47,12 +47,8 @@ export default async function AboutPage() {
       <Section title={messages.authorTitle}>
         <Card className="max-w-3xl">
           <div className="flex flex-col gap-8 sm:flex-row sm:items-start">
-            <div className="shrink-0">
-              {about.author.photo === undefined ? (
-                <div className="flex size-40 items-center justify-center rounded-card border border-dashed border-line bg-carbon px-4 text-center text-xs text-ink-faint">
-                  {messages.photoPending}
-                </div>
-              ) : (
+            {about.author.photo !== undefined && (
+              <div className="shrink-0">
                 <Image
                   src={about.author.photo.url}
                   alt={about.author.photo.alt}
@@ -60,13 +56,13 @@ export default async function AboutPage() {
                   height={PHOTO_SIZE}
                   className="size-40 rounded-card border border-line object-cover"
                 />
-              )}
-              {about.author.photo?.credit !== undefined && (
-                <p className="mt-3 text-xs text-ink-faint">
-                  {interpolate(messages.photoCredit, { credit: about.author.photo.credit })}
-                </p>
-              )}
-            </div>
+                {about.author.photo?.credit !== undefined && (
+                  <p className="mt-3 text-xs text-ink-faint">
+                    {interpolate(messages.photoCredit, { credit: about.author.photo.credit })}
+                  </p>
+                )}
+              </div>
+            )}
             <div>
               <h3 className="text-xl font-semibold tracking-tight">{about.author.name}</h3>
               <p className="mt-1 text-sm text-ink-faint">

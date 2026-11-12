@@ -16,6 +16,8 @@ export const en: Messages = {
     close: 'Close',
     loading: 'Loading',
     skipToContent: 'Skip to content',
+    themeToLight: 'Switch to light mode',
+    themeToDark: 'Switch to dark mode',
     readingMinutes: 'min read',
     breadcrumbAriaLabel: 'Breadcrumb',
     seeAll: 'See all',

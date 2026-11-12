@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { primaryNav, routes } from '@/config/navigation';
 import { LanguageSelector } from '@/components/layout/LanguageSelector';
+import { ThemeToggle } from '@/components/layout/ThemeToggle';
 import { Logo } from '@/components/ui/Logo';
 import { CloseIcon, MenuIcon } from '@/components/ui/icons';
 import type { Locale } from '@/i18n/config';
@@ -42,6 +43,11 @@ export function Navbar({ locale, nav, common }: NavbarProps) {
             label={common.language}
             ariaLabel={common.languageAriaLabel}
           />
+          <ThemeToggle toLightLabel={common.themeToLight} toDarkLabel={common.themeToDark} />
+        </div>
+
+        <div className="ml-auto lg:hidden">
+          <ThemeToggle toLightLabel={common.themeToLight} toDarkLabel={common.themeToDark} />
         </div>
 
         <button
@@ -50,7 +56,7 @@ export function Navbar({ locale, nav, common }: NavbarProps) {
           aria-controls="menu-movil"
           aria-label={menuOpen ? common.closeMenu : common.openMenu}
           onClick={() => setMenuOpen((open) => !open)}
-          className="ml-auto flex size-10 items-center justify-center rounded-full border border-line text-ink-muted transition-colors duration-300 hover:text-brand lg:hidden"
+          className="flex size-10 items-center justify-center rounded-full border border-line text-ink-muted transition-colors duration-300 hover:text-brand lg:hidden"
         >
           {menuOpen ? <CloseIcon /> : <MenuIcon />}
         </button>

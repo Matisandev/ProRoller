@@ -45,7 +45,16 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const [locale, { common, nav }] = await Promise.all([getRequestLocale(), getRequestMessages()]);
 
   return (
-    <html lang={locale} className={inter.variable}>
+    <html lang={locale} className={inter.variable} suppressHydrationWarning>
+      <head>
+        <script
+          // Aplica el tema guardado antes de pintar, igual que en el portafolio y Kastigo.
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}",
+          }}
+        />
+      </head>
       <body className="min-h-screen bg-night font-sans text-ink antialiased">
         <a
           href={`#${MAIN_CONTENT_ID}`}
