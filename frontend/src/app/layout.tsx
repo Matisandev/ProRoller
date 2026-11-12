@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, JetBrains_Mono } from 'next/font/google';
 import { Footer } from '@/components/layout/Footer';
 import { Navbar } from '@/components/layout/Navbar';
 import { siteUrl } from '@/config/site';
@@ -11,6 +11,13 @@ import './globals.css';
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
+  display: 'swap',
+});
+
+const jetbrains = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['500', '600'],
+  variable: '--font-jetbrains',
   display: 'swap',
 });
 
@@ -45,13 +52,13 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const [locale, { common, nav }] = await Promise.all([getRequestLocale(), getRequestMessages()]);
 
   return (
-    <html lang={locale} className={inter.variable} suppressHydrationWarning>
+    <html lang={locale} className={`${inter.variable} ${jetbrains.variable}`} suppressHydrationWarning>
       <head>
         <script
           // Aplica el tema guardado antes de pintar, igual que en el portafolio y Kastigo.
           dangerouslySetInnerHTML={{
             __html:
-              "try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}",
+              "try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}",
           }}
         />
       </head>

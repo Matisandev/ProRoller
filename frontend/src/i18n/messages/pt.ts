@@ -66,6 +66,7 @@ export const pt: Messages = {
     avanzado: 'Avançado',
   },
   hero: {
+    eyebrow: 'Patinação · Modalidades, guias e lugares para patinar',
     titleLines: ['Aprenda.', 'Evolua.', 'Patine.'],
     subtitle: 'Toda a informação do patinação em um só lugar.',
     primaryCta: 'Explorar disciplinas',

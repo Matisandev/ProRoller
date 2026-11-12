@@ -13,7 +13,7 @@ export async function NewsCard({ item }: NewsCardProps) {
 
   return (
     <Card interactive className="flex h-full flex-col p-6">
-      <p className="text-xs tracking-[0.12em] text-brand uppercase">
+      <p className="text-xs font-mono font-semibold tracking-[0.08em] text-brand uppercase">
         {interpolate(messages.sourceLabel, { name: item.source.name })}
       </p>
       <h3 className="mt-4 text-lg leading-snug font-semibold tracking-tight">{item.title}</h3>

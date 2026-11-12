@@ -24,7 +24,7 @@ export async function StoreCard({ store, brands }: StoreCardProps) {
 
       {available.length > 0 && (
         <div className="mt-6">
-          <p className="text-xs tracking-[0.12em] text-ink-faint uppercase">
+          <p className="text-xs font-mono font-semibold tracking-[0.08em] text-ink-faint uppercase">
             {messages.availableBrands}
           </p>
           <p className="mt-2 text-sm text-ink-muted">

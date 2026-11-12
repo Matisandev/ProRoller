@@ -29,7 +29,7 @@ export async function ResultCard({ result }: ResultCardProps) {
             key={entry.position}
             className="flex items-center gap-4 border-t border-line/70 pt-3 text-sm"
           >
-            <span className="w-16 text-xs font-semibold tracking-[0.12em] text-brand uppercase">
+            <span className="w-16 text-xs font-mono font-semibold tracking-[0.08em] text-brand uppercase">
               {messages.positions[positionKeys[entry.position - 1] ?? 'first']}
             </span>
             <span className="flex-1 text-ink">{entry.athlete}</span>

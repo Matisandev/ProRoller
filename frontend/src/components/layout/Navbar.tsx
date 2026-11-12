@@ -20,10 +20,10 @@ export function Navbar({ locale, nav, common }: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line/60 bg-night/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-line bg-[var(--surface-header)] backdrop-blur-md">
       <nav
         aria-label={nav.primaryAriaLabel}
-        className="mx-auto flex h-16 max-w-6xl items-center gap-6 px-6"
+        className="mx-auto flex h-16 max-w-[70rem] items-center gap-5 px-4"
       >
         <Logo href={routes.home} withOwner />
 
@@ -37,7 +37,7 @@ export function Navbar({ locale, nav, common }: NavbarProps) {
           ))}
         </ul>
 
-        <div className="ml-auto hidden items-center gap-3 lg:flex">
+        <div className="ml-auto hidden items-center gap-2 lg:flex">
           <LanguageSelector
             locale={locale}
             label={common.language}
@@ -46,7 +46,7 @@ export function Navbar({ locale, nav, common }: NavbarProps) {
           <ThemeToggle toLightLabel={common.themeToLight} toDarkLabel={common.themeToDark} />
         </div>
 
-        <div className="ml-auto lg:hidden">
+        <div className="ml-auto flex items-center gap-2 lg:hidden">
           <ThemeToggle toLightLabel={common.themeToLight} toDarkLabel={common.themeToDark} />
         </div>
 
@@ -56,14 +56,14 @@ export function Navbar({ locale, nav, common }: NavbarProps) {
           aria-controls="menu-movil"
           aria-label={menuOpen ? common.closeMenu : common.openMenu}
           onClick={() => setMenuOpen((open) => !open)}
-          className="flex size-10 items-center justify-center rounded-full border border-line text-ink-muted transition-colors duration-300 hover:text-brand lg:hidden"
+          className="flex size-[38px] items-center justify-center rounded-xl border border-line bg-[var(--surface-card)] text-ink transition-colors duration-200 hover:border-brand/40 lg:hidden"
         >
           {menuOpen ? <CloseIcon /> : <MenuIcon />}
         </button>
       </nav>
 
       {menuOpen && (
-        <div id="menu-movil" className="border-t border-line/60 px-6 py-6 lg:hidden">
+        <div id="menu-movil" className="border-t border-line px-4 py-5 lg:hidden">
           <ul className="space-y-4 text-sm text-ink-muted">
             {primaryNav.map((item) => (
               <li key={item.key}>

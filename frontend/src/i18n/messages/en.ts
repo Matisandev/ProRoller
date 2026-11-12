@@ -66,6 +66,7 @@ export const en: Messages = {
     avanzado: 'Advanced',
   },
   hero: {
+    eyebrow: 'Skating · Disciplines, guides and places to skate',
     titleLines: ['Learn.', 'Progress.', 'Skate.'],
     subtitle: 'Everything about skating in one place.',
     primaryCta: 'Explore disciplines',

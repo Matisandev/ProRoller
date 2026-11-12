@@ -13,7 +13,7 @@ export async function HelmetNotice({ skipHref = routes.models }: HelmetNoticePro
 
   return (
     <Card className="border-brand/30 bg-brand-soft/20">
-      <p className="text-xs font-medium tracking-[0.2em] text-brand uppercase">{messages.title}</p>
+      <p className="text-xs font-mono font-semibold tracking-[0.08em] text-brand uppercase">{messages.title}</p>
       <h2 className="mt-4 text-2xl font-semibold tracking-tight">{messages.question}</h2>
       <p className="mt-4 max-w-2xl leading-relaxed text-ink-muted">{messages.body}</p>
       <div className="mt-8 flex flex-wrap gap-4">

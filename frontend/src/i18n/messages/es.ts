@@ -64,6 +64,7 @@ export const es = {
     avanzado: 'Avanzado',
   },
   hero: {
+    eyebrow: 'Patinaje · Disciplinas, guías y lugares para patinar',
     titleLines: ['Aprende.', 'Progresa.', 'Patina.'],
     subtitle: 'Toda la información del patinaje en un solo lugar.',
     primaryCta: 'Explorar disciplinas',

@@ -37,7 +37,7 @@ export function ThemeToggle({ toLightLabel, toDarkLabel }: ThemeToggleProps) {
       aria-pressed={theme === 'light'}
       aria-label={label}
       title={label}
-      className="flex size-9 items-center justify-center rounded-xl border border-line bg-carbon text-ink-muted transition-colors duration-300 hover:border-brand/50 hover:text-brand"
+      className="flex size-[38px] items-center justify-center rounded-xl border border-line bg-[var(--surface-card)] text-ink transition-colors duration-200 hover:border-brand/40"
     >
       {theme === 'light' ? (
         <svg

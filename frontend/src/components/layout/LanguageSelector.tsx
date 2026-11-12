@@ -24,7 +24,7 @@ export function LanguageSelector({ locale, label, ariaLabel }: LanguageSelectorP
         defaultValue={locale}
         aria-label={ariaLabel}
         onChange={() => formRef.current?.requestSubmit()}
-        className="h-9 rounded-full border border-line bg-carbon px-3 text-xs tracking-[0.12em] text-ink-muted uppercase transition-colors duration-300 hover:border-brand/50 focus:border-brand focus:outline-none"
+        className="h-[38px] rounded-xl border border-line bg-[var(--surface-card)] px-3 font-mono text-xs font-semibold tracking-[0.08em] text-ink-muted uppercase transition-colors duration-200 hover:border-brand/40 focus:border-brand focus:outline-none"
       >
         {locales.map((option) => (
           <option key={option} value={option} className="bg-carbon text-ink">

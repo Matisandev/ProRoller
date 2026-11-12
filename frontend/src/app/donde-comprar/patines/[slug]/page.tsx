@@ -101,7 +101,7 @@ export default async function ModelPage({ params }: ModelPageProps) {
       <Section title={messages.compatibility}>
         <div className="grid max-w-4xl grid-cols-1 gap-8 sm:grid-cols-3">
           <div>
-            <h3 className="text-sm tracking-[0.12em] text-ink-faint uppercase">
+            <h3 className="text-sm font-mono font-semibold tracking-[0.08em] text-ink-faint uppercase">
               {messages.compatibleFrames}
             </h3>
             <div className="mt-4">
@@ -109,7 +109,7 @@ export default async function ModelPage({ params }: ModelPageProps) {
             </div>
           </div>
           <div>
-            <h3 className="text-sm tracking-[0.12em] text-ink-faint uppercase">
+            <h3 className="text-sm font-mono font-semibold tracking-[0.08em] text-ink-faint uppercase">
               {messages.compatibleWheelSizes}
             </h3>
             <div className="mt-4">
@@ -117,7 +117,7 @@ export default async function ModelPage({ params }: ModelPageProps) {
             </div>
           </div>
           <div>
-            <h3 className="text-sm tracking-[0.12em] text-ink-faint uppercase">
+            <h3 className="text-sm font-mono font-semibold tracking-[0.08em] text-ink-faint uppercase">
               {messages.spareParts}
             </h3>
             <div className="mt-4">

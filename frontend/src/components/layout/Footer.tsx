@@ -7,8 +7,8 @@ export async function Footer() {
   const { footer, nav } = await getRequestMessages();
 
   return (
-    <footer className="border-t border-line/60 px-6 py-12">
-      <div className="mx-auto flex max-w-6xl flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
+    <footer className="border-t border-line/60 px-4 py-12">
+      <div className="mx-auto flex max-w-[70rem] flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
         <div className="space-y-3">
           <Logo href={routes.home} />
           <p className="text-sm text-ink-muted">{footer.tagline}</p>
@@ -27,7 +27,7 @@ export async function Footer() {
         </nav>
       </div>
 
-      <div className="mx-auto mt-10 flex max-w-6xl flex-col gap-2 text-xs text-ink-faint sm:flex-row sm:justify-between">
+      <div className="mx-auto mt-10 flex max-w-[70rem] flex-col gap-2 text-xs text-ink-faint sm:flex-row sm:justify-between">
         <p>{footer.copyright}</p>
         <p>{footer.developedBy}</p>
       </div>

@@ -19,12 +19,12 @@ export async function PlanCard({ plan }: PlanCardProps) {
           {messages.availability[plan.availability]}
         </Badge>
       </div>
-      <p className="mt-3 text-sm tracking-[0.12em] text-brand uppercase">{plan.promise}</p>
+      <p className="mt-3 text-sm font-mono font-semibold tracking-[0.08em] text-brand uppercase">{plan.promise}</p>
       <p className="mt-4 text-sm leading-relaxed text-ink-muted">{plan.description}</p>
 
       {plan.features.length > 0 && (
         <div className="mt-8">
-          <p className="text-xs tracking-[0.12em] text-ink-faint uppercase">{messages.includes}</p>
+          <p className="text-xs font-mono font-semibold tracking-[0.08em] text-ink-faint uppercase">{messages.includes}</p>
           <div className="mt-4">
             <BulletList items={plan.features} />
           </div>
@@ -33,7 +33,7 @@ export async function PlanCard({ plan }: PlanCardProps) {
 
       {plan.futureFeatures.length > 0 && (
         <div className="mt-8">
-          <p className="text-xs tracking-[0.12em] text-ink-faint uppercase">
+          <p className="text-xs font-mono font-semibold tracking-[0.08em] text-ink-faint uppercase">
             {messages.futureBenefits}
           </p>
           <div className="mt-4">

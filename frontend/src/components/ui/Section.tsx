@@ -22,27 +22,27 @@ export function Section({
   className,
 }: SectionProps) {
   return (
-    <section id={id} className={cn('px-6 py-24 sm:py-32', className)}>
-      <div className="mx-auto max-w-6xl">
+    <section id={id} className={cn('px-4 py-12 sm:py-14', className)}>
+      <div className="mx-auto max-w-[70rem]">
         {(eyebrow ?? title ?? description) !== undefined && (
-          <Reveal className="mb-16 max-w-2xl">
+          <Reveal className="mb-6 max-w-2xl">
             {eyebrow !== undefined && (
-              <p className="mb-4 text-xs font-medium tracking-[0.2em] text-brand uppercase">
+              <p className="mb-1 font-mono text-xs font-semibold tracking-[0.08em] text-brand uppercase">
                 {eyebrow}
               </p>
             )}
             {title !== undefined && (
-              <h2 className="text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
+              <h2 className="text-2xl leading-tight font-semibold tracking-tight text-balance sm:text-[2rem]">
                 {title}
               </h2>
             )}
             {description !== undefined && (
-              <p className="mt-4 text-lg leading-relaxed text-ink-muted">{description}</p>
+              <p className="mt-2 text-base leading-relaxed text-ink-muted">{description}</p>
             )}
           </Reveal>
         )}
         {children}
-        {action !== undefined && <div className="mt-12">{action}</div>}
+        {action !== undefined && <div className="mt-8">{action}</div>}
       </div>
     </section>
   );

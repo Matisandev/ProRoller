@@ -36,7 +36,7 @@ export function DisciplineFitList({ fit, disciplines, messages }: DisciplineFitL
             >
               <span className={cn('block h-full rounded-full', barClasses[entry.level])} />
             </span>
-            <span className="w-24 shrink-0 text-right text-xs tracking-[0.12em] text-ink-muted uppercase">
+            <span className="w-24 shrink-0 text-right text-xs font-mono font-semibold tracking-[0.08em] text-ink-muted uppercase">
               <span className="sr-only">
                 {interpolate(messages.fitAriaLabel, {
                   discipline: discipline?.name ?? '',
