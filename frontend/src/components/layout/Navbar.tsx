@@ -25,7 +25,7 @@ export function Navbar({ locale, nav, common }: NavbarProps) {
         aria-label={nav.primaryAriaLabel}
         className="mx-auto flex h-16 max-w-6xl items-center gap-6 px-6"
       >
-        <Logo href={routes.home} />
+        <Logo href={routes.home} withOwner />
 
         <ul className="hidden items-center gap-6 text-sm text-ink-muted lg:flex">
           {primaryNav.map((item) => (
