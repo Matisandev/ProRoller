@@ -47,7 +47,6 @@ export const primaryNav: readonly NavItem[] = [
   { key: 'whereToBuy', href: routes.whereToBuy },
   { key: 'whereToSkate', href: routes.whereToSkate },
   { key: 'news', href: routes.news },
-  { key: 'app', href: routes.app },
 ];
 
 export const footerNav: readonly NavItem[] = [
@@ -62,6 +61,5 @@ export const footerNav: readonly NavItem[] = [
   { key: 'news', href: routes.news },
   { key: 'results', href: routes.results },
   { key: 'events', href: routes.events },
-  { key: 'app', href: routes.app },
   { key: 'about', href: routes.about },
 ];

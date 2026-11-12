@@ -1,5 +1,4 @@
 import { Suspense } from 'react';
-import { AppSection } from '@/components/landing/AppSection';
 import { ArticlesSection } from '@/components/landing/ArticlesSection';
 import { DisciplinesSection } from '@/components/landing/DisciplinesSection';
 import { HeroSection } from '@/components/landing/HeroSection';
@@ -31,7 +30,6 @@ export default async function HomePage() {
       <Suspense fallback={fallback}>
         <NewsSection />
       </Suspense>
-      <AppSection />
     </>
   );
 }

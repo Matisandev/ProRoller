@@ -12,11 +12,15 @@ import { getRequestMessages } from '@/i18n/server';
 import { buildPageMetadata } from '@/lib/metadata';
 import { getAppPlans } from '@/services';
 
-export const metadata = buildPageMetadata({
-  title: getMessages().app.pageTitle,
-  description: getMessages().app.pageDescription,
-  path: routes.app,
-});
+// Página de prueba: oculta del menú y de los buscadores.
+export const metadata = {
+  ...buildPageMetadata({
+    title: getMessages().app.pageTitle,
+    description: getMessages().app.pageDescription,
+    path: routes.app,
+  }),
+  robots: { index: false, follow: false },
+};
 
 export default async function AppPage() {
   const [plans, { app: messages, nav, common }] = await Promise.all([

@@ -32,9 +32,6 @@ export async function HeroSection() {
             <Button href={routes.disciplines} size="lg">
               {hero.primaryCta}
             </Button>
-            <Button href={routes.app} variant="secondary" size="lg">
-              {hero.secondaryCta}
-            </Button>
           </div>
         </Reveal>
       </div>
